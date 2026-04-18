@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhang Yangruo - Personal Portfolio</title>
+    <style>
+        /* 引入现代字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #4299e1;
+            --bg-color: #f7fafc;
+            --text-color: #2d3748;
+            --light-text: #718096;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem 8rem; /* 底部留白给轮播图 */
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #e2e8f0;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a, .contact-info span {
+            color: #ebf8ff;
+            text-decoration: none;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* 照片滚动轮播图容器 */
+        .carousel-container {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin: -100px auto 30px; /* 负边距实现悬浮效果 */
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            background-color: #e2e8f0;
+            border: 4px solid white;
+            z-index: 10;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 300%; /* 假设放3张照片 */
+            height: 100%;
+            animation: scrollPhotos 12s infinite ease-in-out; 
+        }
+
+        .carousel-slide {
+            width: 33.333%; 
+            height: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保证照片不变形 */
+            object-position: center top;
+        }
+
+        /* 纯CSS轮播动画 */
+        @keyframes scrollPhotos {
+            0%, 25% { transform: translateX(0); }
+            33%, 58% { transform: translateX(-33.333%); }
+            66%, 91% { transform: translateX(-66.666%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* 动作跳转按钮区 */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 28px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(43, 108, 176, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            box-shadow: 0 6px 12px rgba(43, 108, 176, 0.2);
+        }
+
+        /* 主体内容区 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 2.5rem;
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .item {
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+
+        .item:last-child { margin-bottom: 0; }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+        }
+
+        .item-date {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: #edf2f7;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .item-subtitle {
+            font-style: italic;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        ul { margin-top: 0; padding-left: 20px; }
+        li { margin-bottom: 0.5rem; }
+
+        /* 技能标签 */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background-color: #ebf8ff;
+            color: var(--secondary-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid #bee3f8;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            background-color: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .item-header { flex-direction: column; }
+            .item-date { margin-top: 10px; align-self: flex-start; }
+            .carousel-container { height: 250px; margin-top: -60px; }
+            section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Zhang Yangruo</h1>
+        <p>B.S. in Applied Mathematics | Minor in Computer Science</p>
+        <div class="contact-info">
+            <a href="mailto:t330033053@mail.bnbu.edu.cn">t330033053@mail.bnbu.edu.cn</a>
+            <span>+86 18724028760</span>
+            <span>Nanjing, Jiangsu, China</span>
+        </div>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="photo1.jpg" alt="Personal Photo 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="photo2.jpg" alt="Personal Photo 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="photo3.jpg" alt="Personal Photo 3">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="action-buttons">
+            <a href="transcript.pdf" target="_blank" class="btn">📄 查看官方成绩单</a>
+            <a href="certificate.pdf" target="_blank" class="btn">📜 查看实习证明</a>
+            <a href="resume.pdf" target="_blank" class="btn btn-outline">⬇️ 下载完整简历 PDF</a>
+        </div>
+
+        <section>
+            <h2>Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Beijing Normal - Hong Kong Baptist University (BNBU)</span>
+                    <span class="item-date">09/2023 – Present</span>
+                </div>
+                <div class="item-subtitle">Bachelor of Science in Applied Mathematics | Minor in Computer Science</div>
+                <ul>
+                    <li><strong>GPA:</strong> 3.38/4.0 | <strong>Rank:</strong> 20/65</li>
+                    <li><strong>Key Courses:</strong> Machine Learning, Data Structures and Algorithms, Mathematical Modelling, Optimization, Probability Theory, Graph Theory.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Internship Experience</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Machang Tianyuan Surveying and Mapping Co., Ltd</span>
+                    <span class="item-date">Jan. 2026 – Mar. 2026</span>
+                </div>
+                <div class="item-subtitle">Remote Sensing Data Analyst Intern | Anhui, China</div>
+                <ul>
+                    <li>Executed statistical evaluations using Regression Analysis and Hypothesis Testing to validate inversion models.</li>
+                    <li>Applied Monte Carlo simulations to quantify the uncertainty propagation of surface parameters.</li>
+                    <li>Conducted Time-Series Analysis to track seasonal vegetation index trends, ensuring high data reliability.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Jiangsu Hoperun Software Co., Ltd. (Huawei Enterprise Dept)</span>
+                    <span class="item-date">Jun. 2025 – Aug. 2025</span>
+                </div>
+                <div class="item-subtitle">Assistant Data Annotator | Jiangsu, China</div>
+                <ul>
+                    <li>Processed and annotated large-scale, real-world enterprise datasets for Huawei, establishing high-fidelity ground truth for ML models.</li>
+                    <li>Executed rigorous Data Quality Assurance (QA) protocols, identifying anomalies in unstructured data.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Research & Projects</h2>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">Research on the TME-HyperPerturb</span>
+                    <span class="item-date">Sep. 2025 – Jan. 2026</span>
+                </div>
+                <ul>
+                    <li>Proposed the core conceptual framework of a semantic hypergraph to encode biologically motivated microenvironmental motifs.</li>
+                    <li>Reproduced and structurally improved the chemCPA baseline model to establish a rigorous benchmarking pipeline.</li>
+                    <li>Co-authored the manuscript (3rd Author), currently under review for ISMB, demonstrating a peak Pearson correlation of 0.998±0.002.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">COVID-19 Testing Strategy Optimization Based on Bayesian Theorem</span>
+                    <span class="item-date">Apr. 2025 – Jun. 2025</span>
+                </div>
+                <ul>
+                    <li>Developed an epidemiological optimization model based on Bayes' Theorem to address high false-positive rates.</li>
+                    <li>Executed Monte Carlo simulations using MATLAB and conducted Z-tests for rigorous statistical validation.</li>
+                    <li>Formulated a hierarchical testing strategy (Antigen+PCR) to optimize public health resource allocation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Honors & Leadership</h2>
+            <div class="item">
+                <ul>
+                    <li><strong>Provincial Second Prize</strong> - China Undergraduate Mathematical Contest in Modeling (Oct. 2025)</li>
+                    <li><strong>Provincial Third Prize</strong> - China Undergraduate Mathematical Contest in Modeling (Oct. 2024)</li>
+                    <li><strong>Silver Award</strong> - Leader Path Programme of BNBU (May. 2025)</li>
+                    <li><strong>Chairperson of Electoral Commission</strong> & Executive Committee Member - BNBU Student Union</li>
+                    <li><strong>Peer Mentor & Resident Tutor</strong> - BNBU</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">C/C++</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">MATLAB</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Bayesian Inference</span>
+                <span class="skill-tag">Monte Carlo Simulation</span>
+                <span class="skill-tag">GNNs</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">LaTeX</span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Zhang Yangruo. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

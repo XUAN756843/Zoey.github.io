@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhang Yangruo - Personal Portfolio</title>
     <style>
-        /* 引入现代字体 */
+        /* Import modern font */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
@@ -27,11 +27,11 @@
             scroll-behavior: smooth;
         }
 
-        /* 头部样式 */
+        /* Header Style */
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 4rem 2rem 8rem; /* 底部留白给轮播图 */
+            padding: 4rem 2rem 8rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -71,12 +71,12 @@
             background: rgba(255,255,255,0.2);
         }
 
-        /* 照片滚动轮播图容器 */
+        /* Photo Carousel Container */
         .carousel-container {
             width: 100%;
             max-width: 700px;
             height: 400px;
-            margin: -100px auto 30px; /* 负边距实现悬浮效果 */
+            margin: -100px auto 30px;
             position: relative;
             overflow: hidden;
             border-radius: 16px;
@@ -88,7 +88,7 @@
 
         .carousel-track {
             display: flex;
-            width: 300%; /* 假设放3张照片 */
+            width: 300%;
             height: 100%;
             animation: scrollPhotos 12s infinite ease-in-out; 
         }
@@ -101,11 +101,11 @@
         .carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 保证照片不变形 */
+            object-fit: cover;
             object-position: center top;
         }
 
-        /* 纯CSS轮播动画 */
+        /* Pure CSS Carousel Animation */
         @keyframes scrollPhotos {
             0%, 25% { transform: translateX(0); }
             33%, 58% { transform: translateX(-33.333%); }
@@ -113,7 +113,7 @@
             100% { transform: translateX(0); }
         }
 
-        /* 动作跳转按钮区 */
+        /* Action Buttons Area */
         .action-buttons {
             display: flex;
             justify-content: center;
@@ -155,7 +155,7 @@
             box-shadow: 0 6px 12px rgba(43, 108, 176, 0.2);
         }
 
-        /* 主体内容区 */
+        /* Main Content Area */
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -235,9 +235,9 @@
         }
 
         ul { margin-top: 0; padding-left: 20px; }
-        li { margin-bottom: 0.5rem; }
+        li { margin-bottom: 0.6rem; }
 
-        /* 技能标签 */
+        /* Skills Tags */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -309,9 +309,9 @@
     <div class="container">
         
         <div class="action-buttons">
-            <a href="transcript.pdf" target="_blank" class="btn">📄 查看官方成绩单</a>
-            <a href="certificate.pdf" target="_blank" class="btn">📜 查看实习证明</a>
-            <a href="resume.pdf" target="_blank" class="btn btn-outline">⬇️ 下载完整简历 PDF</a>
+            <a href="transcript.pdf" target="_blank" class="btn">📄 View Official Transcript</a>
+            <a href="certificate.pdf" target="_blank" class="btn">📜 View Certificates & Awards</a>
+            <a href="resume.pdf" target="_blank" class="btn btn-outline">⬇️ Download Full Resume (PDF)</a>
         </div>
 
         <section>
@@ -387,11 +387,12 @@
         </section>
 
         <section>
-            <h2>Honors & Leadership</h2>
+            <h2>Honors & Academic Activities</h2>
             <div class="item">
                 <ul>
-                    <li><strong>Provincial Second Prize</strong> - China Undergraduate Mathematical Contest in Modeling (Oct. 2025)</li>
-                    <li><strong>Provincial Third Prize</strong> - China Undergraduate Mathematical Contest in Modeling (Oct. 2024)</li>
+                    <li><strong>Attendee</strong> - The 14th National Forum on Mathematical Culture, Chinese Mathematical Society (Jun. 2025 – Jul. 2025, Zhengzhou, China)</li>
+                    <li><strong>Provincial Second Prize</strong> - China Undergraduate Mathematical Contest in Modeling (Topic: Determination of Silicon Carbide Epitaxial Layer Thickness) (Oct. 2025)</li>
+                    <li><strong>Provincial Third Prize</strong> - China Undergraduate Mathematical Contest in Modeling (Topic: "Bench Dragon" Lantern Festival) (Oct. 2024)</li>
                     <li><strong>Silver Award</strong> - Leader Path Programme of BNBU (May. 2025)</li>
                     <li><strong>Chairperson of Electoral Commission</strong> & Executive Committee Member - BNBU Student Union</li>
                     <li><strong>Peer Mentor & Resident Tutor</strong> - BNBU</li>

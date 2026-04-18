@@ -25,12 +25,11 @@
             background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            padding-top: var(--nav-height); /* 给顶部导航栏留出空间 */
+            padding-top: var(--nav-height); 
             scroll-behavior: smooth;
         }
 
         /* --- 语言切换逻辑 --- */
-        /* 默认显示英文，隐藏中文 */
         body.lang-en .zh { display: none !important; }
         body.lang-zh .en { display: none !important; }
 
@@ -223,7 +222,7 @@
             padding: 3rem;
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            scroll-margin-top: 80px; /* 跳转时避免被导航栏遮挡 */
+            scroll-margin-top: 80px; 
         }
 
         h2 {
@@ -317,7 +316,7 @@
         }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* 移动端隐藏中间文字导航栏 */
+            .nav-links { display: none; } 
             .item-header { flex-direction: column; }
             .item-date { margin-top: 8px; align-self: flex-start; }
             .carousel-container { height: 280px; margin-top: -60px; }
@@ -325,9 +324,11 @@
         }
     </style>
 </head>
-<body class="lang-en"> <nav>
+<body class="lang-en">
+
+    <nav>
         <div style="font-weight: 700; color: var(--primary-color);">
-            <span class="en">Y. Zhang</span><span class="zh">张扬若</span>
+            <span class="en">Y. Zhang</span><span class="zh">张旸若</span>
         </div>
         <div class="nav-links">
             <a href="#about"><span class="en">About</span><span class="zh">关于</span></a>
@@ -344,7 +345,7 @@
     <header>
         <h1>
             <span class="en">Zhang Yangruo</span>
-            <span class="zh">张 扬 若</span>
+            <span class="zh">张 旸 若</span>
         </h1>
         <p>
             <span class="en">B.S. in Applied Mathematics | Minor in Computer Science</span>
@@ -411,8 +412,8 @@
                         <span class="zh"><strong>GPA:</strong> 3.38/4.0 | <strong>专业排名:</strong> 20/65</span>
                     </li>
                     <li>
-                        <span class="en"><strong>Selected Courses:</strong> Machine Learning, Data Structures & Algorithms, Mathematical Modelling, Optimization, Probability Theory, GNNs.</span>
-                        <span class="zh"><strong>核心课程:</strong> 机器学习、数据结构与算法、数学建模、最优化方法、概率论、图神经网络。</span>
+                        <span class="en"><strong>Selected Courses:</strong> Machine Learning, Data Structures & Algorithms, Applied Statistics, Applied Stochastic Process, Optimization, Numerical Analysis, Graph Theory, Database Management Systems.</span>
+                        <span class="zh"><strong>核心课程:</strong> 机器学习、数据结构与算法、应用统计学、应用随机过程、最优化方法、数值分析、图论、数据库管理系统。</span>
                     </li>
                 </ul>
             </div>
@@ -443,7 +444,7 @@
                     </li>
                     <li>
                         <span class="en">Optimized and benchmarked the chemCPA baseline model, achieving a Pearson correlation of <strong>0.998±0.002</strong>.</span>
-                        <span class="zh">深度优化并基准测试 chemCPA 模型，实现了 <strong>0.998±0.002</strong> 的极高皮尔逊相关系数。</span>
+                        <span class="zh">深度优化并基准测试 chemCPA 模型，在多个数据集上实现了 <strong>0.998±0.002</strong> 的极高皮尔逊相关系数。</span>
                     </li>
                     <li>
                         <span class="en"><strong>ISMB Submission (3rd Author):</strong> Manuscript currently under peer review.</span>
@@ -456,7 +457,7 @@
                 <div class="item-header">
                     <span class="item-title">
                         <span class="en">COVID-19 Testing Strategy via Bayesian Theorem</span>
-                        <span class="zh">基于贝叶斯定理的 COVID-19 测试策略优化</span>
+                        <span class="zh">基于贝叶斯定理的 COVID-19 层次检测策略优化</span>
                     </span>
                     <span class="item-date">
                         <span class="en">Apr. 2025 – Jun. 2025</span><span class="zh">2025.04 – 2025.06</span>
@@ -465,11 +466,11 @@
                 <ul>
                     <li>
                         <span class="en">Built an epidemiological model to reduce false-positive rates using hierarchical testing (Antigen+PCR).</span>
-                        <span class="zh">构建流行病学优化模型，通过分层测试策略（抗原+PCR联合）显著降低假阳性率。</span>
+                        <span class="zh">构建流行病学优化模型，制定分层检测策略（抗原筛查+PCR确诊），大幅降低假阳性误判率。</span>
                     </li>
                     <li>
                         <span class="en">Validated the model through Monte Carlo simulations in MATLAB and rigorous Z-tests.</span>
-                        <span class="zh">在 MATLAB 中使用蒙特卡洛模拟对模型进行仿真，并通过 Z 检验进行严格的统计学验证。</span>
+                        <span class="zh">在 MATLAB 中编写算法执行蒙特卡洛模拟，并通过 Z 检验进行严格的统计学验证。</span>
                         <br>
                         <a href="Applied_Statistics_Project.pdf" target="_blank" style="display: inline-block; margin-top: 8px; color: var(--accent-color); font-weight: 600; text-decoration: none; background: #ebf8ff; padding: 6px 14px; border-radius: 6px; transition: background 0.3s;">
                             <span class="en">📄 Read Full Paper & Code</span><span class="zh">📄 查看完整论文与代码</span>
@@ -485,7 +486,7 @@
                 <div class="item-header">
                     <span class="item-title">
                         <span class="en">Machang Tianyuan Surveying & Mapping Co., Ltd</span>
-                        <span class="zh">天源测绘有限公司</span>
+                        <span class="zh">马鞍山天元测绘有限公司 (数据分析部)</span>
                     </span>
                     <span class="item-date">
                         <span class="en">Jan. 2026 – Mar. 2026</span><span class="zh">2026.01 – 2026.03</span>
@@ -493,16 +494,16 @@
                 </div>
                 <div class="item-subtitle">
                     <span class="en">Remote Sensing Data Analyst Intern | Anhui, China</span>
-                    <span class="zh">遥感数据分析实习生 | 中国安徽</span>
+                    <span class="zh">遥感数据分析师实习生 | 中国安徽</span>
                 </div>
                 <ul>
                     <li>
                         <span class="en">Executed statistical evaluations using Regression and Hypothesis Testing to validate inversion models.</span>
-                        <span class="zh">运用回归分析和假设检验等统计评估方法，验证卫星反演模型的准确性。</span>
+                        <span class="zh">运用回归分析和假设检验对反演模型进行统计学验证，应用蒙特卡洛模拟量化不确定性传播。</span>
                     </li>
                     <li>
                         <span class="en">Quantified uncertainty propagation via Monte Carlo simulations and tracked seasonal trends through Time-Series Analysis.</span>
-                        <span class="zh">应用蒙特卡洛模拟量化表面参数的不确定性传播，并通过时间序列分析跟踪植被指数趋势。</span>
+                        <span class="zh">执行时间序列分析追踪植被指数季节性趋势，验证了反演结果的统计显著性。</span>
                     </li>
                 </ul>
             </div>
@@ -510,24 +511,24 @@
                 <div class="item-header">
                     <span class="item-title">
                         <span class="en">Jiangsu Hoperun Software (Huawei Enterprise Dept)</span>
-                        <span class="zh">江苏润和软件股份有限公司 (华为企业部门)</span>
+                        <span class="zh">江苏润和软件股份有限公司 (华为事业部)</span>
                     </span>
                     <span class="item-date">
                         <span class="en">Jun. 2025 – Aug. 2025</span><span class="zh">2025.06 – 2025.08</span>
                     </span>
                 </div>
                 <div class="item-subtitle">
-                    <span class="en">Assistant Data Annotator | Jiangsu, China</span>
+                    <span class="en">Assistant Data Labeler | Jiangsu, China</span>
                     <span class="zh">助理数据标注师 | 中国江苏</span>
                 </div>
                 <ul>
                     <li>
                         <span class="en">Processed large-scale enterprise datasets to establish ground truth for ML model training.</span>
-                        <span class="zh">处理并标注大规模、真实企业级数据集，为机器学习模型训练建立高保真基准测试集。</span>
+                        <span class="zh">深度参与华为企业业务部海量非结构化数据的处理与标注，为下游机器学习算法提供高质量“基准事实”。</span>
                     </li>
                     <li>
                         <span class="en">Implemented QA protocols to handle edge cases in unstructured data, ensuring maximum data integrity.</span>
-                        <span class="zh">执行严格的数据质量保证 (QA) 协议，系统处理非结构化数据中的异常，确保数据完整性。</span>
+                        <span class="zh">执行严格的数据质量保证 (QA) 流程，精准识别并剔除业务数据中的异常值与边缘情况，确保一致性。</span>
                     </li>
                 </ul>
             </div>
@@ -548,7 +549,7 @@
                 </div>
                 <div class="item-subtitle">
                     <span class="en">Attendee | Organized by Chinese Mathematical Society</span>
-                    <span class="zh">参会代表 | 中国数学会主办</span>
+                    <span class="zh">学术参会 | 中国数学会主办, 中国郑州</span>
                 </div>
             </div>
 
@@ -556,7 +557,7 @@
                 <div class="item-header">
                     <span class="item-title">
                         <span class="en">China Undergraduate Mathematical Contest in Modeling</span>
-                        <span class="zh">全国大学生数学建模竞赛 (MCM)</span>
+                        <span class="zh">全国大学生数学建模竞赛 (CUMCM)</span>
                     </span>
                     <span class="item-date">2024 & 2025</span>
                 </div>
@@ -575,6 +576,26 @@
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">
+                        <span class="en">Leader Path Programme of BNBU</span>
+                        <span class="zh">BNBU Leader Path 领袖计划</span>
+                    </span>
+                    <span class="item-date">2025 & 2026</span>
+                </div>
+                <ul>
+                    <li>
+                        <span class="en"><strong>Gold Award:</strong> Leader Path Programme (2026)</span>
+                        <span class="zh"><strong>金奖:</strong> 校级领袖计划最高荣誉 (2026)</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Silver Award:</strong> Leader Path Programme (2025)</span>
+                        <span class="zh"><strong>银奖:</strong> 校级领袖计划荣誉 (2025)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">
                         <span class="en">Introduction to Statistics & Data Analysis in Public Health</span>
                         <span class="zh">公共卫生中的统计与数据分析基础</span>
                     </span>
@@ -584,7 +605,7 @@
                 </div>
                 <div class="item-subtitle">
                     <span class="en">Course Certificate | Imperial College London (via Coursera)</span>
-                    <span class="zh">结课证书 | 帝国理工学院 (Coursera)</span>
+                    <span class="zh">课程证书 | 帝国理工学院 (Coursera)</span>
                 </div>
                 <a href="imperial_bio.pdf" target="_blank" style="display: inline-block; margin-top: 5px; color: var(--accent-color); font-weight: 600; text-decoration: none; font-size: 0.95em;">
                     <span class="en">🎓 [View Official Certificate]</span><span class="zh">🎓 [查看官方证书]</span>
@@ -593,30 +614,34 @@
         </section>
 
         <section id="leadership">
-            <h2><span class="en">Leadership & Extracurricular</span><span class="zh">校园经历与领导力</span></h2>
+            <h2><span class="en">Leadership & Extracurricular</span><span class="zh">校园经历</span></h2>
             
             <div class="item">
                 <div class="item-header">
                     <span class="item-title">
                         <span class="en">Student Leadership & Organization</span>
-                        <span class="zh">学生组织与行政工作</span>
+                        <span class="zh">学生组织与管理工作</span>
                     </span>
                     <span class="item-date">
-                        <span class="en">Sept. 2023 – Jun. 2026</span><span class="zh">2023.09 – 2026.06</span>
+                        <span class="en">Sept. 2023 – Present</span><span class="zh">2023.09 – 至今</span>
                     </span>
                 </div>
                 <ul>
                     <li>
-                        <span class="en"><strong>Chairperson of Electoral Commission</strong>, BNBU Student Union</span>
-                        <span class="zh"><strong>选举委员会主席</strong>, 校学生会</span>
+                        <span class="en"><strong>Chairperson of Electoral Commission</strong>, BNBU Student Union (Sept. 2025 – Present): Executed university-level elections and managed daily operations.</span>
+                        <span class="zh"><strong>选举委员会主席</strong>, 校学生会 (2025.09 - 至今): 负责策划执行校级选举活动，管理部门日常运作与成员培训。</span>
                     </li>
                     <li>
-                        <span class="en"><strong>Head of Organization Department</strong>, BNBU CCYL Committee</span>
-                        <span class="zh"><strong>组织部部长</strong>, 校共青团委</span>
+                        <span class="en"><strong>Head of Organization Department</strong>, BNBU CCYL Committee (Sept. 2025 – Present): Coordinated youth league activities and trained student officers.</span>
+                        <span class="zh"><strong>组织部部长</strong>, 校团委 (2025.09 - 至今): 协助校团委完成校级工作，为院级学生副书记和团干进行培训。</span>
                     </li>
                     <li>
-                        <span class="en"><strong>Executive Committee Member</strong>, BNBU Student Union</span>
-                        <span class="zh"><strong>执行委员会委员</strong>, 校学生会</span>
+                        <span class="en"><strong>Head of Hanfu Department</strong>, Traditional Culture Club (Sept. 2025 – Present): Promoted traditional culture and organized large-scale campus performances.</span>
+                        <span class="zh"><strong>汉服部部长</strong>, 传统文化社团 (2025.09 - 至今): 在校内宣传传统文化，组织开展众多汉服活动和表演。</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Administrative Office Member</strong>, Student Union (Sept. 2023 – Jun. 2025): Assisted in logistics and coordination of major student events.</span>
+                        <span class="zh"><strong>干事会行政办公室成员</strong>, 校学生会 (2023.09 - 2025.06): 协助处理学生会各大活动后勤工作。</span>
                     </li>
                 </ul>
             </div>
@@ -625,24 +650,24 @@
                 <div class="item-header">
                     <span class="item-title">
                         <span class="en">Campus Mentorship & Administration</span>
-                        <span class="zh">校园导师辅导</span>
+                        <span class="zh">校园导师与行政辅导</span>
                     </span>
                     <span class="item-date">
-                        <span class="en">May. 2024 – Jun. 2026</span><span class="zh">2024.05 – 2026.06</span>
+                        <span class="en">May. 2024 – Present</span><span class="zh">2024.05 – 至今</span>
                     </span>
                 </div>
                 <ul>
                     <li>
-                        <span class="en"><strong>Resident Tutor</strong>, BNBU Student Affairs Office</span>
-                        <span class="zh"><strong>驻校导师</strong>, 学生事务处</span>
+                        <span class="en"><strong>Resident Tutor</strong>, BNBU Student Affairs Office (Sept. 2025 – Present): Supported residential hall management and student life guidance.</span>
+                        <span class="zh"><strong>学长舍堂导师</strong> (2025.09 - 至今): 协助管理宿舍楼栋，组织舍堂活动，为学生苑舍生活提供支持与指导。</span>
                     </li>
                     <li>
-                        <span class="en"><strong>Peer Mentor</strong>, BNBU Peer Mentor Program</span>
-                        <span class="zh"><strong>同辈导师</strong>, 朋辈导师计划</span>
+                        <span class="en"><strong>Peer Mentor</strong>, BNBU Peer Mentor Program (Sept. 2024 – Jun. 2025): Provided academic and life counseling for freshmen.</span>
+                        <span class="zh"><strong>朋辈导师 (Peer Mentor)</strong> (2024.09 - 2025.06): 为低年级学生提供学术与生活上的辅导，促进其适应大学生活。</span>
                     </li>
                     <li>
-                        <span class="en"><strong>Award:</strong> Silver Award in Leader Path Programme</span>
-                        <span class="zh"><strong>荣誉称号:</strong> 领袖生计划银奖</span>
+                        <span class="en"><strong>External Affairs Intern</strong>, BNBU Admission Office (May. 2024 – Jul. 2024): Represented the university in external recruitment presentations across multiple cities.</span>
+                        <span class="zh"><strong>外务实习生</strong>, 校招生办公室 (2024.05 - 2024.07): 协助各项招生工作，作为代表前往安徽省各市进行宣讲。</span>
                     </li>
                 </ul>
             </div>
@@ -663,14 +688,17 @@
             <h3><span class="en">AI & Data Engineering</span><span class="zh">AI 与数据算法</span></h3>
             <div class="skills-container">
                 <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">Pandas / NumPy</span>
+                <span class="skill-tag"><span class="en">Pandas (Proficient)</span><span class="zh">精通 Pandas</span></span>
+                <span class="skill-tag"><span class="en">Data Visualization (Matplotlib/Seaborn)</span><span class="zh">数据可视化 (Matplotlib/Seaborn)</span></span>
                 <span class="skill-tag"><span class="en">Machine Learning</span><span class="zh">机器学习</span></span>
                 <span class="skill-tag"><span class="en">Graph Neural Networks (GNNs)</span><span class="zh">图神经网络 (GNNs)</span></span>
             </div>
 
             <h3><span class="en">Mathematical Foundation</span><span class="zh">数理分析基础</span></h3>
             <div class="skills-container">
-                <span class="skill-tag"><span class="en">Statistical Modeling</span><span class="zh">统计建模</span></span>
+                <span class="skill-tag"><span class="en">Gradient Optimization</span><span class="zh">梯度优化算法</span></span>
+                <span class="skill-tag"><span class="en">Bayesian Inference</span><span class="zh">贝叶斯推断</span></span>
+                <span class="skill-tag"><span class="en">Hypothesis Testing</span><span class="zh">假设检验</span></span>
                 <span class="skill-tag"><span class="en">Monte Carlo Simulation</span><span class="zh">蒙特卡洛模拟</span></span>
                 <span class="skill-tag">MATLAB</span>
             </div>

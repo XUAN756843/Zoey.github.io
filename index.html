@@ -15,6 +15,7 @@
             --bg-color: #f7fafc;
             --text-color: #2d3748;
             --light-text: #718096;
+            --nav-height: 60px;
         }
 
         body {
@@ -24,16 +25,72 @@
             background-color: var(--bg-color);
             margin: 0;
             padding: 0;
+            padding-top: var(--nav-height); /* 给顶部导航栏留出空间 */
             scroll-behavior: smooth;
         }
 
-        /* Header Style with Gradient */
+        /* --- 语言切换逻辑 --- */
+        /* 默认显示英文，隐藏中文 */
+        body.lang-en .zh { display: none !important; }
+        body.lang-zh .en { display: none !important; }
+
+        /* --- 顶部吸顶导航栏 --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            padding: 0 2rem;
+            box-sizing: border-box;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .lang-toggle {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* --- Header Header Style --- */
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 4rem 2rem 8rem;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         header h1 {
@@ -88,7 +145,7 @@
 
         .carousel-track {
             display: flex;
-            width: 200%; /* For 2 photos */
+            width: 200%;
             height: 100%;
             animation: scrollPhotos 10s infinite ease-in-out; 
         }
@@ -111,7 +168,7 @@
             100% { transform: translateX(0); }
         }
 
-        /* Responsive Action Buttons */
+        /* Action Buttons */
         .action-buttons {
             display: flex;
             justify-content: center;
@@ -166,6 +223,7 @@
             padding: 3rem;
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            scroll-margin-top: 80px; /* 跳转时避免被导航栏遮挡 */
         }
 
         h2 {
@@ -221,6 +279,7 @@
             background: #edf2f7;
             padding: 4px 12px;
             border-radius: 12px;
+            white-space: nowrap;
         }
 
         .item-subtitle {
@@ -232,7 +291,6 @@
         ul { margin-top: 0; padding-left: 20px; }
         li { margin-bottom: 0.5rem; }
 
-        /* Categorized Skill Tags */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -259,6 +317,7 @@
         }
 
         @media (max-width: 768px) {
+            .nav-links { display: none; } /* 移动端隐藏中间文字导航栏 */
             .item-header { flex-direction: column; }
             .item-date { margin-top: 8px; align-self: flex-start; }
             .carousel-container { height: 280px; margin-top: -60px; }
@@ -266,95 +325,115 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-en"> <nav>
+        <div style="font-weight: 700; color: var(--primary-color);">
+            <span class="en">Y. Zhang</span><span class="zh">张扬若</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about"><span class="en">About</span><span class="zh">关于</span></a>
+            <a href="#education"><span class="en">Education</span><span class="zh">教育</span></a>
+            <a href="#projects"><span class="en">Projects</span><span class="zh">项目</span></a>
+            <a href="#internship"><span class="en">Experience</span><span class="zh">经历</span></a>
+            <a href="#honors"><span class="en">Honors</span><span class="zh">荣誉</span></a>
+            <a href="#leadership"><span class="en">Leadership</span><span class="zh">校园</span></a>
+            <a href="#skills"><span class="en">Skills</span><span class="zh">技能</span></a>
+        </div>
+        <button class="lang-toggle" onclick="toggleLanguage()">🌐 EN / 中文</button>
+    </nav>
 
     <header>
-        <h1>Zhang Yangruo</h1>
-        <p>B.S. in Applied Mathematics | Minor in Computer Science</p>
+        <h1>
+            <span class="en">Zhang Yangruo</span>
+            <span class="zh">张 旸 若</span>
+        </h1>
+        <p>
+            <span class="en">B.S. in Applied Mathematics | Minor in Computer Science</span>
+            <span class="zh">应用数学理学学士 | 辅修计算机科学</span>
+        </p>
         <div class="contact-info">
             <a href="mailto:t330033053@mail.bnbu.edu.cn">t330033053@mail.bnbu.edu.cn</a>
             <span>+86 18724028760</span>
-            <span>Nanjing, China</span>
+            <span>
+                <span class="en">Nanjing, China</span><span class="zh">中国, 南京</span>
+            </span>
         </div>
     </header>
 
     <div class="carousel-container">
         <div class="carousel-track">
-            <div class="carousel-slide">
-                <img src="photo1.jpg" alt="Profile View 1">
-            </div>
-            <div class="carousel-slide">
-                <img src="photo2.jpg" alt="Profile View 2">
-            </div>
+            <div class="carousel-slide"><img src="photo1.jpg" alt="Profile View 1"></div>
+            <div class="carousel-slide"><img src="photo2.jpg" alt="Profile View 2"></div>
         </div>
     </div>
 
     <div class="container">
-        
         <div class="action-buttons">
-            <a href="transcript.pdf" target="_blank" class="btn">📄 Transcript</a>
-            <a href="certificate.pdf" target="_blank" class="btn">📜 Awards & Forum</a>
-            <a href="resume.pdf" target="_blank" class="btn btn-outline">⬇️ Resume (PDF)</a>
+            <a href="transcript.pdf" target="_blank" class="btn">
+                <span class="en">📄 Transcript</span><span class="zh">📄 官方成绩单</span>
+            </a>
+            <a href="certificate.pdf" target="_blank" class="btn">
+                <span class="en">📜 Awards & Forum</span><span class="zh">📜 竞赛与参会证明</span>
+            </a>
+            <a href="resume.pdf" target="_blank" class="btn btn-outline">
+                <span class="en">⬇️ Resume (PDF)</span><span class="zh">⬇️ 简历 (PDF)</span>
+            </a>
         </div>
 
-        <section style="padding: 2rem 3rem; background: #ebf8ff; border-left: 4px solid var(--secondary-color);">
-            <h2 style="border: none; margin-bottom: 0.5rem; color: var(--primary-color);">About Me</h2>
+        <section id="about" style="padding: 2rem 3rem; background: #ebf8ff; border-left: 4px solid var(--secondary-color);">
+            <h2 style="border: none; margin-bottom: 0.5rem; color: var(--primary-color);">
+                <span class="en">About Me</span><span class="zh">关于我</span>
+            </h2>
             <p style="font-size: 1.05rem; margin-top: 0;">
-                I am an undergraduate student majoring in Applied Mathematics with a minor in Computer Science. My research interests broadly lie at the intersection of <strong>Computational Biology, Biostatistics, and AI Deployment</strong>. 
+                <span class="en">I am an undergraduate student majoring in Applied Mathematics with a minor in Computer Science. My research interests broadly lie at the intersection of <strong>Computational Biology, Biostatistics, and AI Deployment</strong>.</span>
+                <span class="zh">我是一名主修应用数学、辅修计算机科学的本科生。我的研究兴趣广泛聚焦于<strong>计算生物学、生物统计学和人工智能模型部署</strong>的交叉领域。</span>
             </p>
             <p style="font-size: 1.05rem; font-weight: 600; color: #2b6cb0; margin-bottom: 0;">
-                🚀 Actively seeking a Summer Research Internship or Engineering role (Summer 2026) in data-driven systems or AI modeling.
+                <span class="en">🚀 Actively seeking a Summer Research Internship or Engineering role (Summer 2026) in data-driven systems or AI modeling.</span>
+                <span class="zh">🚀 我目前正在积极寻找 2026 年夏季在数据驱动系统分析或 AI 建模方向的暑期科研或工程实习机会。</span>
             </p>
         </section>
 
-        <section>
-            <h2>Education</h2>
+        <section id="education">
+            <h2><span class="en">Education</span><span class="zh">教育背景</span></h2>
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Beijing Normal - Hong Kong Baptist University (BNBU)</span>
-                    <span class="item-date">09/2023 – Present</span>
+                    <span class="item-title">
+                        <span class="en">Beijing Normal - Hong Kong Baptist University (BNBU)</span>
+                        <span class="zh">北京师范大学-香港浸会大学联合国际学院 (BNBU)</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">09/2023 – Present</span><span class="zh">2023.09 – 至今</span>
+                    </span>
                 </div>
-                <div class="item-subtitle">Bachelor of Science in Applied Mathematics | Minor in Computer Science</div>
+                <div class="item-subtitle">
+                    <span class="en">Bachelor of Science in Applied Mathematics | Minor in Computer Science</span>
+                    <span class="zh">应用数学理学学士 | 辅修计算机科学</span>
+                </div>
                 <ul>
-                    <li><strong>GPA:</strong> 3.38/4.0 | <strong>Rank:</strong> 20/65</li>
-                    <li><strong>Selected Courses:</strong> Machine Learning, Data Structures & Algorithms, Mathematical Modelling, Optimization, Probability Theory, GNNs.</li>
+                    <li>
+                        <span class="en"><strong>GPA:</strong> 3.38/4.0 | <strong>Rank:</strong> 20/65</span>
+                        <span class="zh"><strong>GPA:</strong> 3.38/4.0 | <strong>专业排名:</strong> 20/65</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Selected Courses:</strong> Machine Learning, Data Structures & Algorithms, Mathematical Modelling, Optimization, Probability Theory, GNNs.</span>
+                        <span class="zh"><strong>核心课程:</strong> 机器学习、数据结构与算法、数学建模、最优化方法、概率论、图神经网络。</span>
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <section>
-            <h2>Internship Experience</h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Machang Tianyuan Surveying & Mapping Co., Ltd</span>
-                    <span class="item-date">Jan. 2026 – Mar. 2026</span>
-                </div>
-                <div class="item-subtitle">Remote Sensing Data Analyst Intern | Anhui, China</div>
-                <ul>
-                    <li>Executed statistical evaluations using Regression and Hypothesis Testing to validate inversion models.</li>
-                    <li>Quantified uncertainty propagation via Monte Carlo simulations and tracked seasonal trends through Time-Series Analysis.</li>
-                </ul>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">Jiangsu Hoperun Software (Huawei Enterprise Dept)</span>
-                    <span class="item-date">Jun. 2025 – Aug. 2025</span>
-                </div>
-                <div class="item-subtitle">Assistant Data Annotator | Jiangsu, China</div>
-                <ul>
-                    <li>Processed large-scale enterprise datasets to establish ground truth for ML model training.</li>
-                    <li>Implemented QA protocols to handle edge cases in unstructured data, ensuring maximum data integrity.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Selected Projects</h2>
+        <section id="projects">
+            <h2><span class="en">Selected Projects</span><span class="zh">核心项目经历</span></h2>
             
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">TME-HyperPerturb (Hypergraph Perturbation Model)</span>
-                    <span class="item-date">Sep. 2025 – Jan. 2026</span>
+                    <span class="item-title">
+                        <span class="en">TME-HyperPerturb (Hypergraph Perturbation Model)</span>
+                        <span class="zh">TME-HyperPerturb (基于超图的扰动模型)</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Sep. 2025 – Jan. 2026</span><span class="zh">2025.09 – 2026.01</span>
+                    </span>
                 </div>
                 
                 <div style="margin: 1.5rem 0; text-align: center;">
@@ -362,95 +441,221 @@
                 </div>
 
                 <ul>
-                    <li>Developed a semantic hypergraph framework to encode niche signals within tumor microenvironments.</li>
-                    <li>Optimized and benchmarked the chemCPA baseline model, achieving a Pearson correlation of <strong>0.998±0.002</strong>.</li>
-                    <li><strong>ISMB Submission (3rd Author):</strong> Manuscript currently under peer review.</li>
+                    <li>
+                        <span class="en">Developed a semantic hypergraph framework to encode niche signals within tumor microenvironments.</span>
+                        <span class="zh">提出并开发了编码肿瘤微环境 (TME) 局部生态位信号的语义超图框架。</span>
+                    </li>
+                    <li>
+                        <span class="en">Optimized and benchmarked the chemCPA baseline model, achieving a Pearson correlation of <strong>0.998±0.002</strong>.</span>
+                        <span class="zh">深度优化并基准测试 chemCPA 模型，实现了 <strong>0.998±0.002</strong> 的极高皮尔逊相关系数。</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>ISMB Submission (3rd Author):</strong> Manuscript currently under peer review.</span>
+                        <span class="zh"><strong>ISMB 国际顶会投稿（第三作者）:</strong> 论文稿件目前正在进行同行评审。</span>
+                    </li>
                 </ul>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">COVID-19 Testing Strategy via Bayesian Theorem</span>
-                    <span class="item-date">Apr. 2025 – Jun. 2025</span>
+                    <span class="item-title">
+                        <span class="en">COVID-19 Testing Strategy via Bayesian Theorem</span>
+                        <span class="zh">基于贝叶斯定理的 COVID-19 测试策略优化</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Apr. 2025 – Jun. 2025</span><span class="zh">2025.04 – 2025.06</span>
+                    </span>
                 </div>
                 <ul>
-                    <li>Built an epidemiological model to reduce false-positive rates using hierarchical testing (Antigen+PCR).</li>
-                    <li>Validated the model through Monte Carlo simulations in MATLAB and rigorous Z-tests. 
+                    <li>
+                        <span class="en">Built an epidemiological model to reduce false-positive rates using hierarchical testing (Antigen+PCR).</span>
+                        <span class="zh">构建流行病学优化模型，通过分层测试策略（抗原+PCR联合）显著降低假阳性率。</span>
+                    </li>
+                    <li>
+                        <span class="en">Validated the model through Monte Carlo simulations in MATLAB and rigorous Z-tests.</span>
+                        <span class="zh">在 MATLAB 中使用蒙特卡洛模拟对模型进行仿真，并通过 Z 检验进行严格的统计学验证。</span>
+                        <br>
                         <a href="Applied_Statistics_Project.pdf" target="_blank" style="display: inline-block; margin-top: 8px; color: var(--accent-color); font-weight: 600; text-decoration: none; background: #ebf8ff; padding: 6px 14px; border-radius: 6px; transition: background 0.3s;">
-                            📄 Read Full Paper & Code
+                            <span class="en">📄 Read Full Paper & Code</span><span class="zh">📄 查看完整论文与代码</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <section>
-            <h2>Honors & Academic Activities</h2>
+        <section id="internship">
+            <h2><span class="en">Internship Experience</span><span class="zh">实习经历</span></h2>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">
+                        <span class="en">Machang Tianyuan Surveying & Mapping Co., Ltd</span>
+                        <span class="zh">天源测绘有限公司</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Jan. 2026 – Mar. 2026</span><span class="zh">2026.01 – 2026.03</span>
+                    </span>
+                </div>
+                <div class="item-subtitle">
+                    <span class="en">Remote Sensing Data Analyst Intern | Anhui, China</span>
+                    <span class="zh">遥感数据分析实习生 | 中国安徽</span>
+                </div>
+                <ul>
+                    <li>
+                        <span class="en">Executed statistical evaluations using Regression and Hypothesis Testing to validate inversion models.</span>
+                        <span class="zh">运用回归分析和假设检验等统计评估方法，验证卫星反演模型的准确性。</span>
+                    </li>
+                    <li>
+                        <span class="en">Quantified uncertainty propagation via Monte Carlo simulations and tracked seasonal trends through Time-Series Analysis.</span>
+                        <span class="zh">应用蒙特卡洛模拟量化表面参数的不确定性传播，并通过时间序列分析跟踪植被指数趋势。</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">
+                        <span class="en">Jiangsu Hoperun Software (Huawei Enterprise Dept)</span>
+                        <span class="zh">江苏润和软件股份有限公司 (华为企业部门)</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Jun. 2025 – Aug. 2025</span><span class="zh">2025.06 – 2025.08</span>
+                    </span>
+                </div>
+                <div class="item-subtitle">
+                    <span class="en">Assistant Data Annotator | Jiangsu, China</span>
+                    <span class="zh">助理数据标注师 | 中国江苏</span>
+                </div>
+                <ul>
+                    <li>
+                        <span class="en">Processed large-scale enterprise datasets to establish ground truth for ML model training.</span>
+                        <span class="zh">处理并标注大规模、真实企业级数据集，为机器学习模型训练建立高保真基准测试集。</span>
+                    </li>
+                    <li>
+                        <span class="en">Implemented QA protocols to handle edge cases in unstructured data, ensuring maximum data integrity.</span>
+                        <span class="zh">执行严格的数据质量保证 (QA) 协议，系统处理非结构化数据中的异常，确保数据完整性。</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="honors">
+            <h2><span class="en">Honors & Academic Activities</span><span class="zh">荣誉与学术经历</span></h2>
             
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">The 14th National Forum on Mathematical Culture</span>
-                    <span class="item-date">Jun. 2025 – Jul. 2025</span>
+                    <span class="item-title">
+                        <span class="en">The 14th National Forum on Mathematical Culture</span>
+                        <span class="zh">第十四届全国数学文化论坛</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Jun. 2025 – Jul. 2025</span><span class="zh">2025.06 – 2025.07</span>
+                    </span>
                 </div>
-                <div class="item-subtitle">Attendee | Organized by Chinese Mathematical Society</div>
+                <div class="item-subtitle">
+                    <span class="en">Attendee | Organized by Chinese Mathematical Society</span>
+                    <span class="zh">参会代表 | 中国数学会主办</span>
+                </div>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">China Undergraduate Mathematical Contest in Modeling</span>
+                    <span class="item-title">
+                        <span class="en">China Undergraduate Mathematical Contest in Modeling</span>
+                        <span class="zh">全国大学生数学建模竞赛 (MCM)</span>
+                    </span>
                     <span class="item-date">2024 & 2025</span>
                 </div>
                 <ul>
-                    <li><strong>Provincial Second Prize:</strong> Determination of Silicon Carbide Epitaxial Layer Thickness (Oct. 2025)</li>
-                    <li><strong>Provincial Third Prize:</strong> "Bench Dragon" Lantern Festival (Oct. 2024)</li>
+                    <li>
+                        <span class="en"><strong>Provincial Second Prize:</strong> Determination of Silicon Carbide Epitaxial Layer Thickness (Oct. 2025)</span>
+                        <span class="zh"><strong>省级二等奖:</strong> 碳化硅外延层厚度的确定 (2025.10)</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Provincial Third Prize:</strong> "Bench Dragon" Lantern Festival (Oct. 2024)</span>
+                        <span class="zh"><strong>省级三等奖:</strong> “板凳龙”闹元宵 (2024.10)</span>
+                    </li>
                 </ul>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Introduction to Statistics & Data Analysis in Public Health</span>
-                    <span class="item-date">Jan. 2026</span>
+                    <span class="item-title">
+                        <span class="en">Introduction to Statistics & Data Analysis in Public Health</span>
+                        <span class="zh">公共卫生中的统计与数据分析基础</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Jan. 2026</span><span class="zh">2026.01</span>
+                    </span>
                 </div>
-                <div class="item-subtitle">Course Certificate | Imperial College London (via Coursera)</div>
+                <div class="item-subtitle">
+                    <span class="en">Course Certificate | Imperial College London (via Coursera)</span>
+                    <span class="zh">结课证书 | 帝国理工学院 (Coursera)</span>
+                </div>
                 <a href="imperial_bio.pdf" target="_blank" style="display: inline-block; margin-top: 5px; color: var(--accent-color); font-weight: 600; text-decoration: none; font-size: 0.95em;">
-                    🎓 [View Official Certificate]
+                    <span class="en">🎓 [View Official Certificate]</span><span class="zh">🎓 [查看官方证书]</span>
                 </a>
             </div>
         </section>
 
-        <section>
-            <h2>Leadership & Extracurricular Activities</h2>
+        <section id="leadership">
+            <h2><span class="en">Leadership & Extracurricular</span><span class="zh">校园经历与领导力</span></h2>
             
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Student Leadership & Organization</span>
-                    <span class="item-date">Sept. 2023 – Jun. 2026</span>
+                    <span class="item-title">
+                        <span class="en">Student Leadership & Organization</span>
+                        <span class="zh">学生组织与行政工作</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Sept. 2023 – Jun. 2026</span><span class="zh">2023.09 – 2026.06</span>
+                    </span>
                 </div>
                 <ul>
-                    <li><strong>Chairperson of Electoral Commission</strong>, BNBU Student Union (Sept. 2025 – Jun. 2026)</li>
-                    <li><strong>Head of Organization Department</strong>, BNBU CCYL Committee (Sept. 2025 – Jun. 2026)</li>
-                    <li><strong>Executive Committee Member</strong>, BNBU Student Union (Sept. 2023 – Jun. 2025)</li>
+                    <li>
+                        <span class="en"><strong>Chairperson of Electoral Commission</strong>, BNBU Student Union</span>
+                        <span class="zh"><strong>选举委员会主席</strong>, 校学生会</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Head of Organization Department</strong>, BNBU CCYL Committee</span>
+                        <span class="zh"><strong>组织部部长</strong>, 校共青团委</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Executive Committee Member</strong>, BNBU Student Union</span>
+                        <span class="zh"><strong>执行委员会委员</strong>, 校学生会</span>
+                    </li>
                 </ul>
             </div>
 
             <div class="item">
                 <div class="item-header">
-                    <span class="item-title">Campus Mentorship & Administration</span>
-                    <span class="item-date">May. 2024 – Jun. 2026</span>
+                    <span class="item-title">
+                        <span class="en">Campus Mentorship & Administration</span>
+                        <span class="zh">校园导师辅导</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">May. 2024 – Jun. 2026</span><span class="zh">2024.05 – 2026.06</span>
+                    </span>
                 </div>
                 <ul>
-                    <li><strong>Resident Tutor</strong>, BNBU Student Affairs Office (Sept. 2025 – Jun. 2026)</li>
-                    <li><strong>Peer Mentor</strong>, BNBU Peer Mentor Program (Sept. 2024 – Jun. 2025)</li>
-                    <li><strong>Student Administrative Assistant</strong>, BNBU Admission Office (May. 2024 – Jul. 2024)</li>
-                    <li><strong>Award:</strong> Silver Award in Leader Path Programme of BNBU (May. 2025)</li>
+                    <li>
+                        <span class="en"><strong>Resident Tutor</strong>, BNBU Student Affairs Office</span>
+                        <span class="zh"><strong>学长舍堂导师</strong>, 学生事务处</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Peer Mentor</strong>, BNBU Peer Mentor Program</span>
+                        <span class="zh"><strong>朋辈导师</strong>, 朋辈导师计划</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Award:</strong> Silver Award in Leader Path Programme</span>
+                        <span class="zh"><strong>荣誉称号:</strong> 学生领袖计划银奖</span>
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <section>
-            <h2>Technical Skills</h2>
+        <section id="skills">
+            <h2><span class="en">Technical Skills</span><span class="zh">专业技能</span></h2>
             
-            <h3>Core Development</h3>
+            <h3><span class="en">Core Development</span><span class="zh">核心工程开发</span></h3>
             <div class="skills-container">
                 <span class="skill-tag">C/C++</span>
                 <span class="skill-tag">Python</span>
@@ -459,28 +664,28 @@
                 <span class="skill-tag">Git</span>
             </div>
 
-            <h3>AI & Data Engineering</h3>
+            <h3><span class="en">AI & Data Engineering</span><span class="zh">AI 与数据算法</span></h3>
             <div class="skills-container">
                 <span class="skill-tag">PyTorch</span>
                 <span class="skill-tag">Pandas / NumPy</span>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Graph Neural Networks (GNNs)</span>
+                <span class="skill-tag"><span class="en">Machine Learning</span><span class="zh">机器学习</span></span>
+                <span class="skill-tag"><span class="en">Graph Neural Networks (GNNs)</span><span class="zh">图神经网络 (GNNs)</span></span>
             </div>
 
-            <h3>Mathematical Foundation</h3>
+            <h3><span class="en">Mathematical Foundation</span><span class="zh">数理分析基础</span></h3>
             <div class="skills-container">
-                <span class="skill-tag">Statistical Modeling</span>
-                <span class="skill-tag">Monte Carlo Simulation</span>
+                <span class="skill-tag"><span class="en">Statistical Modeling</span><span class="zh">统计建模</span></span>
+                <span class="skill-tag"><span class="en">Monte Carlo Simulation</span><span class="zh">蒙特卡洛模拟</span></span>
                 <span class="skill-tag">MATLAB</span>
             </div>
 
-            <h3>Languages</h3>
+            <h3><span class="en">Languages</span><span class="zh">语言能力</span></h3>
             <div class="skills-container">
                 <span class="skill-tag">
-                    English (IELTS: 6.5) 
+                    <span class="en">English (IELTS: 6.5)</span><span class="zh">英语 (雅思: 6.5)</span>
                     <a href="ielts.pdf" target="_blank" style="color: var(--primary-color); font-weight: 700; text-decoration: none; margin-left: 5px;">📄</a>
                 </span>
-                <span class="skill-tag">Mandarin (Native)</span>
+                <span class="skill-tag"><span class="en">Mandarin (Native)</span><span class="zh">中文 (母语)</span></span>
             </div>
         </section>
     </div>
@@ -489,5 +694,17 @@
         <p>&copy; 2026 Zhang Yangruo. All Rights Reserved. Built with GitHub Pages.</p>
     </footer>
 
+    <script>
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-zh');
+            } else {
+                body.classList.remove('lang-zh');
+                body.classList.add('lang-en');
+            }
+        }
+    </script>
 </body>
 </html>

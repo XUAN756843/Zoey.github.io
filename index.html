@@ -3,877 +3,1179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="description" content="Portfolio of Zhang Yangruo (张旸若). Applied Mathematics undergraduate focused on biomedical AI, statistical modeling, infectious-disease decision support, and computational biology.">
-    <meta property="og:title" content="Zhang Yangruo (张旸若) - Personal Portfolio">
-    <meta property="og:description" content="Applied Mathematics undergraduate at BNBU focused on biomedical AI, forecasting-guided decision support, and statistical learning.">
+    <meta name="description" content="Portfolio of Zhang Yangruo. Applied Mathematics undergraduate focused on biomedical AI, computational biology, statistical modeling, and data-driven decision support.">
+    <meta property="og:title" content="Zhang Yangruo - Personal Portfolio">
+    <meta property="og:description" content="Applied Mathematics undergraduate at BNBU with research experience in dengue diagnostic decision support and tumor microenvironment modeling.">
     <meta property="og:type" content="website">
-
     <title>Zhang Yangruo - Portfolio</title>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --accent-color: #4299e1;
+            --primary-color: #14345c;
+            --secondary-color: #2f6fa7;
+            --accent-color: #d45c8c;
+            --soft-pink: #fce8f1;
+            --soft-blue: #eef6ff;
             --bg-color: #f7fafc;
-            --text-color: #2d3748;
-            --light-text: #718096;
-            --nav-height: 60px;
+            --card-color: #ffffff;
+            --text-color: #243044;
+            --light-text: #6b7280;
+            --border-color: #dce5f0;
+            --nav-height: 64px;
+            --shadow: 0 10px 24px rgba(20, 52, 92, 0.08);
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            padding-top: var(--nav-height);
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
-        body.lang-en .zh { display: none !important; }
-        body.lang-zh .en { display: none !important; }
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: var(--nav-height);
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-color);
+            background: linear-gradient(180deg, #f7fafc 0%, #ffffff 55%, #f7fafc 100%);
+        }
+
+        body.lang-en .zh {
+            display: none !important;
+        }
+
+        body.lang-zh .en {
+            display: none !important;
+        }
 
         nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             height: var(--nav-height);
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 0 2rem;
-            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(220, 229, 240, 0.8);
         }
 
-        .nav-brand {
-            font-weight: 700;
+        .brand {
+            font-weight: 800;
             color: var(--primary-color);
-            letter-spacing: 0.3px;
+            letter-spacing: 0.02em;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 1.25rem;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: var(--primary-color);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+            text-decoration: none;
+            font-size: 0.93rem;
+            font-weight: 650;
+            transition: color 0.2s ease;
         }
 
-        .nav-links a:hover { color: var(--accent-color); }
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
 
         .lang-toggle {
-            background-color: var(--primary-color);
-            color: white;
             border: none;
-            padding: 6px 16px;
-            border-radius: 20px;
+            border-radius: 999px;
+            padding: 0.45rem 1rem;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            color: #ffffff;
+            background: var(--primary-color);
+            font-weight: 700;
+            transition: all 0.2s ease;
         }
 
         .lang-toggle:hover {
-            background-color: var(--accent-color);
-            transform: scale(1.05);
+            transform: translateY(-1px);
+            background: var(--accent-color);
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background:
+                radial-gradient(circle at top right, rgba(212, 92, 140, 0.22), transparent 32%),
+                linear-gradient(135deg, #102b4f 0%, #245f91 100%);
             color: white;
-            padding: 4.2rem 2rem 8.4rem;
+            padding: 5rem 2rem 4rem;
+        }
+
+        .hero {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .hero .subtitle {
+            margin: 1.2rem 0 0;
+            font-size: 1.22rem;
+            color: #dbeafe;
+            max-width: 760px;
+        }
+
+        .preface {
+            margin-top: 1.6rem;
+            padding: 1.2rem 1.35rem;
+            border-radius: 18px;
+            background: rgba(252, 232, 241, 0.96);
+            color: #243044;
+            border-left: 5px solid var(--accent-color);
+            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+        }
+
+        .preface strong {
+            color: var(--primary-color);
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.4rem;
+        }
+
+        .hero-tag {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 999px;
+            padding: 0.45rem 0.85rem;
+            background: rgba(255, 255, 255, 0.12);
+            color: #f8fafc;
+            font-weight: 650;
+            font-size: 0.92rem;
+        }
+
+        .profile-card {
+            padding: 1.15rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 20px 42px rgba(0, 0, 0, 0.16);
+        }
+
+        .profile-card img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.88);
+            background: #ffffff;
+            display: block;
+        }
+
+        .profile-card .caption {
+            margin-top: 0.9rem;
+            font-size: 0.92rem;
+            color: #e5edf6;
             text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.18rem;
-            margin: 10px 0;
-            color: #e2e8f0;
-        }
-
-        .hero-keywords {
-            max-width: 820px;
-            margin: 18px auto 0;
-            color: #ebf8ff;
-            font-size: 1rem;
-        }
-
-        .contact-info {
-            margin-top: 20px;
-            font-size: 0.95rem;
+        .contact-row {
             display: flex;
-            justify-content: center;
-            gap: 14px;
             flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
         }
 
-        .contact-info a, .contact-info span {
-            color: #ebf8ff;
+        .contact-row a,
+        .contact-row span {
+            color: #ffffff;
             text-decoration: none;
-            background: rgba(255,255,255,0.1);
-            padding: 8px 18px;
-            border-radius: 20px;
-            transition: background 0.3s;
-        }
-
-        .contact-info a:hover { background: rgba(255,255,255,0.2); }
-
-        .carousel-container {
-            width: 100%;
-            max-width: 700px;
-            height: 400px;
-            margin: -100px auto 30px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            background-color: #e2e8f0;
-            border: 4px solid white;
-            z-index: 10;
-        }
-
-        .carousel-track {
-            display: flex;
-            width: 200%;
-            height: 100%;
-            animation: scrollPhotos 10s infinite ease-in-out;
-        }
-
-        .carousel-slide { width: 50%; height: 100%; }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        @keyframes scrollPhotos {
-            0%, 40% { transform: translateX(0); }
-            50%, 90% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+            border-radius: 999px;
+            padding: 0.5rem 0.9rem;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 0.92rem;
         }
 
         .container {
-            max-width: 930px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 0 2rem 2rem;
+            padding: 2.6rem 2rem 4rem;
         }
 
         .action-buttons {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0 36px;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.85rem;
+            margin-bottom: 2.5rem;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 10px 22px;
-            background-color: var(--accent-color);
-            color: white;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.72rem 1.15rem;
+            border-radius: 999px;
+            background: var(--secondary-color);
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+            font-weight: 750;
+            box-shadow: 0 8px 18px rgba(47, 111, 167, 0.16);
+            transition: all 0.2s ease;
         }
 
         .btn:hover {
-            background-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(43, 108, 176, 0.3);
+            background: var(--primary-color);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background: #ffffff;
             color: var(--secondary-color);
-            border: 2px solid var(--secondary-color);
+            border: 1.5px solid var(--secondary-color);
             box-shadow: none;
         }
 
         .btn-outline:hover {
-            background-color: var(--secondary-color);
-            color: white;
-            box-shadow: 0 6px 12px rgba(43, 108, 176, 0.2);
+            color: #ffffff;
+            background: var(--secondary-color);
         }
 
         section {
-            background: white;
-            margin-bottom: 2.5rem;
-            padding: 3rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            scroll-margin-top: 80px;
+            margin-bottom: 2.2rem;
+            padding: 2.25rem;
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            scroll-margin-top: 88px;
         }
 
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-            display: inline-block;
+        .section-heading {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
 
+        h2 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: clamp(1.65rem, 3vw, 2.25rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .section-kicker {
+            margin: 0.4rem 0 0;
+            color: var(--light-text);
+            font-weight: 500;
+        }
+
+        .underline {
+            width: 120px;
+            height: 4px;
+            border-radius: 999px;
+            margin-top: 0.9rem;
+            background: var(--accent-color);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.05rem;
+        }
+
+        .card {
+            padding: 1.25rem;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+        }
+
+        .card.soft {
+            background: #f8fbff;
+        }
+
+        .card.pink {
+            background: var(--soft-pink);
+            border-color: #f4bdd4;
+        }
+
         h3 {
-            font-size: 1.1rem;
+            margin: 0 0 0.85rem;
+            color: var(--primary-color);
+            font-size: 1.22rem;
+            line-height: 1.25;
+        }
+
+        .subtle {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin: -0.35rem 0 0.8rem;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1.15rem;
+        }
+
+        li {
+            margin-bottom: 0.55rem;
+        }
+
+        li::marker {
+            color: var(--accent-color);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-item {
+            padding: 1rem;
+            border-radius: 16px;
+            background: var(--soft-blue);
+            border: 1px solid #d6e8fb;
+        }
+
+        .timeline-item strong {
+            display: block;
             color: var(--secondary-color);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+
+        .skill-tag {
+            padding: 0.42rem 0.72rem;
+            border-radius: 999px;
+            background: #eef6ff;
+            color: var(--secondary-color);
+            border: 1px solid #d6e8fb;
+            font-size: 0.88rem;
+            font-weight: 650;
         }
 
         .item {
-            margin-bottom: 2rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid #e2e8f0;
-            position: relative;
+            margin-bottom: 1.7rem;
+            padding-left: 1.05rem;
+            border-left: 3px solid #d6e8fb;
         }
 
-        .item:last-child { margin-bottom: 0; }
-        
-        .item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 5px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
+        .item:last-child {
+            margin-bottom: 0;
         }
 
         .item-header {
             display: flex;
-            justify-content: space-between;
             align-items: baseline;
-            gap: 16px;
-            margin-bottom: 0.5rem;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.25rem;
         }
 
         .item-title {
-            font-weight: 700;
-            font-size: 1.18rem;
-            color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: 800;
+            font-size: 1.12rem;
         }
 
         .item-date {
+            flex-shrink: 0;
             color: var(--light-text);
+            font-weight: 700;
             font-size: 0.9rem;
-            font-weight: 600;
-            background: #edf2f7;
-            padding: 4px 12px;
-            border-radius: 12px;
-            white-space: nowrap;
+            background: #f1f5f9;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
         }
 
         .item-subtitle {
-            font-style: italic;
-            color: var(--light-text);
-            margin-bottom: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 650;
+            margin-bottom: 0.65rem;
         }
 
-        ul { margin-top: 0; padding-left: 20px; }
-        li { margin-bottom: 0.5rem; }
+        .figure {
+            margin: 1.1rem 0 1.25rem;
+            text-align: center;
+        }
 
-        .highlight-box {
-            padding: 2rem 3rem;
-            background: #ebf8ff;
-            border-left: 4px solid var(--secondary-color);
+        .figure img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: contain;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+            box-shadow: 0 8px 20px rgba(20, 52, 92, 0.08);
+        }
+
+        .figure-caption {
+            margin: 0.7rem auto 0;
+            color: var(--light-text);
+            font-size: 0.92rem;
+            max-width: 780px;
         }
 
         .metric-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 12px;
-            margin: 16px 0 10px;
+            gap: 0.9rem;
+            margin: 1.25rem 0;
         }
 
-        .metric-card {
-            background: #f7fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 14px;
+        .metric {
             text-align: center;
+            padding: 1rem 0.6rem;
+            border-radius: 18px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
         }
 
-        .metric-value {
+        .metric strong {
             display: block;
-            font-weight: 700;
-            color: var(--primary-color);
-            font-size: 1.15rem;
+            color: var(--accent-color);
+            font-size: 1.65rem;
+            line-height: 1.15;
         }
 
-        .metric-label {
+        .metric span {
             display: block;
             color: var(--light-text);
             font-size: 0.82rem;
-            margin-top: 4px;
+            margin-top: 0.2rem;
         }
 
-
-        .project-figure {
-            margin: 1.5rem 0;
-            text-align: center;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
         }
 
-        .project-figure img {
-            max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 1px solid #e2e8f0;
+        .gallery.two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .photo-card {
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+            box-shadow: 0 8px 18px rgba(20, 52, 92, 0.06);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            object-position: center;
             display: block;
-            margin: 0 auto;
         }
 
-        .figure-caption {
-            margin-top: 10px;
-            color: var(--light-text);
-            font-size: 0.92rem;
-        }
-        .project-link {
-            display: inline-block;
-            margin-top: 8px;
-            color: var(--accent-color);
-            font-weight: 600;
-            text-decoration: none;
-            background: #ebf8ff;
-            padding: 6px 14px;
-            border-radius: 6px;
-            transition: background 0.3s;
+        .photo-card.tall img {
+            height: 240px;
+            object-fit: contain;
+            background: #f8fafc;
         }
 
-        .project-link:hover { background: #bee3f8; }
-
-        .project-note {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--light-text);
-            font-size: 0.92rem;
-            background: #f7fafc;
-            border: 1px solid #e2e8f0;
-            padding: 7px 12px;
-            border-radius: 8px;
+        .photo-card.wide img {
+            height: 210px;
         }
 
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 1.5rem;
+        .photo-caption {
+            padding: 0.65rem 0.8rem;
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 0.88rem;
+            font-weight: 650;
         }
 
-        .skill-tag {
-            background-color: #ebf8ff;
-            color: var(--secondary-color);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: 1px solid #bee3f8;
+        .honor-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem 1.2rem;
+        }
+
+        .honor-list div {
+            padding: 0.8rem 0.95rem;
+            border-radius: 14px;
+            background: #f8fbff;
+            border: 1px solid #d6e8fb;
         }
 
         footer {
+            padding: 2.4rem 2rem;
             text-align: center;
-            padding: 2rem;
             color: var(--light-text);
-            font-size: 0.85rem;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid var(--border-color);
+            background: #ffffff;
         }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            header h1 { font-size: 2.35rem; }
-            .item-header { flex-direction: column; align-items: flex-start; }
-            .item-date { margin-top: 2px; }
-            .carousel-container { height: 280px; margin-top: -60px; }
-            section, .highlight-box { padding: 1.5rem; }
-            .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        @media (max-width: 980px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                max-width: 340px;
+                margin: 0 auto;
+            }
+
+            .grid-2,
+            .grid-3,
+            .gallery,
+            .gallery.two,
+            .metric-grid,
+            .honor-list,
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 620px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            header {
+                padding: 3.6rem 1rem 3rem;
+            }
+
+            .container {
+                padding: 1.6rem 1rem 3rem;
+            }
+
+            section {
+                padding: 1.45rem;
+            }
+
+            .item-header {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+
+            .item-date {
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
 <body class="lang-en">
-
     <nav>
-        <div class="nav-brand">
-            <span class="en">Y. Zhang</span><span class="zh">张旸若</span>
+        <div class="brand">
+            <span class="en">Zhang Yangruo</span>
+            <span class="zh">张旸若</span>
         </div>
         <div class="nav-links">
             <a href="#about"><span class="en">About</span><span class="zh">关于</span></a>
-            <a href="#education"><span class="en">Education</span><span class="zh">教育</span></a>
             <a href="#research"><span class="en">Research</span><span class="zh">科研</span></a>
-            <a href="#internship"><span class="en">Experience</span><span class="zh">经历</span></a>
+            <a href="#experience"><span class="en">Experience</span><span class="zh">经历</span></a>
             <a href="#honors"><span class="en">Honors</span><span class="zh">荣誉</span></a>
-            <a href="#leadership"><span class="en">Leadership</span><span class="zh">领导力</span></a>
+            <a href="#leadership"><span class="en">Leadership</span><span class="zh">校园</span></a>
+            <a href="#volunteer"><span class="en">Service</span><span class="zh">志愿服务</span></a>
             <a href="#skills"><span class="en">Skills</span><span class="zh">技能</span></a>
         </div>
         <button class="lang-toggle" onclick="toggleLanguage()">🌐 EN / 中文</button>
     </nav>
 
     <header>
-        <h1>
-            <span class="en">Zhang Yangruo</span>
-            <span class="zh">张 旸 若</span>
-        </h1>
-        <p>
-            <span class="en">Applied Mathematics Undergraduate | Biomedical AI & Decision Support</span>
-            <span class="zh">应用数学本科生 | 生物医学 AI 与决策支持</span>
-        </p>
-        <div class="hero-keywords">
-            <span class="en">Statistical Modeling · Time-Series Forecasting · Computational Biology · Public-Health Decision Optimization</span>
-            <span class="zh">统计建模 · 时间序列预测 · 计算生物学 · 公共卫生决策优化</span>
-        </div>
-        <div class="contact-info">
-            <a href="mailto:t330033053@mail.bnbu.edu.cn">t330033053@mail.bnbu.edu.cn</a>
-            <a href="https://xuan756843.github.io/Zoey.github.io/" target="_blank">Portfolio</a>
-            <span><span class="en">Zhuhai, China</span><span class="zh">中国，珠海</span></span>
+        <div class="hero">
+            <div>
+                <h1>
+                    <span class="en">Zhang Yangruo</span>
+                    <span class="zh">张旸若</span>
+                </h1>
+                <p class="subtitle">
+                    <span class="en">Applied Mathematics | Computer Science | Computational Biology | Data-Driven Decision Support</span>
+                    <span class="zh">应用数学｜生物医学 AI｜计算生物学｜数据驱动决策支持</span>
+                </p>
+
+                <div class="preface">
+                    <p style="margin: 0;">
+                        <span class="en"><strong>Preface.</strong> This portfolio presents my exploration at the intersection of applied mathematics, computer science, and biomedical AI. Through research on dengue diagnostic decision support and tumor microenvironment modeling, I hope to show not only what I have completed, but also how I think, learn, and connect quantitative methods with real-world needs.</span>
+                        <span class="zh"><strong>引言。</strong> 这份作品集展示了我在应用数学、计算机科学与生物医学 AI 交叉方向上的探索。从登革热诊断决策支持到肿瘤微环境建模，我希望呈现的不只是已完成的成果，也包括我如何思考、学习，并将定量方法连接到真实问题。</span>
+                    </p>
+                </div>
+
+                <div class="hero-tags">
+                    <span class="hero-tag">BNBU Applied Mathematics</span>
+                    <span class="hero-tag">Minor in Computer Science</span>
+                    <span class="hero-tag">CGPA 3.38/4.0</span>
+                    <span class="hero-tag">IELTS 6.5</span>
+                    <span class="hero-tag">Rank Top 20</span>
+                </div>
+
+                <div class="contact-row">
+                    <a href="mailto:t330033053@mail.bnbu.edu.cn">t330033053@mail.bnbu.edu.cn</a>
+                    <a href="tel:+8618724028760">+86 18724028760</a>
+                    <a href="https://xuan756843.github.io/Zoey.github.io/" target="_blank" rel="noopener">xuan756843.github.io</a>
+                    <span>Zhuhai / Nanjing, China</span>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <img src="profile_photo.png" alt="Zhang Yangruo profile photo">
+                <div class="caption">
+                    <span class="en">Applied Mathematics undergraduate at BNBU</span>
+                    <span class="zh">北师香港浸会大学应用数学本科生</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="carousel-container">
-        <div class="carousel-track">
-            <div class="carousel-slide"><img src="photo1.jpg" alt="Profile View 1"></div>
-            <div class="carousel-slide"><img src="photo2.jpg" alt="Profile View 2"></div>
-        </div>
-    </div>
-
-    <div class="container">
+    <main class="container">
         <div class="action-buttons">
             <a href="resume.pdf" target="_blank" class="btn btn-outline en">⬇️ Resume (PDF)</a>
-            <a href="chinese_cv.pdf" target="_blank" class="btn btn-outline zh">⬇️ 中文简历 (PDF)</a>
-            <a href="transcript.pdf" target="_blank" class="btn">
-                <span class="en">📄 Transcript</span><span class="zh">📄 官方成绩单</span>
-            </a>
-            <a href="certificate.pdf" target="_blank" class="btn">
-                <span class="en">📜 Certificates</span><span class="zh">📜 证书材料</span>
-            </a>
+            <a href="Chinese_cv.pdf" target="_blank" class="btn btn-outline zh">⬇️ 中文简历 (PDF)</a>
+            <a href="portfolio.pdf" target="_blank" class="btn">📁 <span class="en">Portfolio PDF</span><span class="zh">作品集 PDF</span></a>
+            <a href="transcript.pdf" target="_blank" class="btn">📄 <span class="en">Transcript</span><span class="zh">官方成绩单</span></a>
+            <a href="certificate.pdf" target="_blank" class="btn">📜 <span class="en">Awards & Certificates</span><span class="zh">奖项与证明</span></a>
         </div>
 
-        <section id="about" class="highlight-box">
-            <h2 style="border: none; margin-bottom: 0.5rem; color: var(--primary-color);">
-                <span class="en">About Me</span><span class="zh">关于我</span>
-            </h2>
-            <p style="font-size: 1.05rem; margin-top: 0;">
-                <span class="en">I am an undergraduate student at Beijing Normal - Hong Kong Baptist University (BNBU), majoring in Applied Mathematics with a minor in Computer Science. My current work focuses on applying mathematical modeling, statistical learning, and machine learning to biomedical and public-health decision problems, especially infectious-disease forecasting, adaptive diagnostic triage, and computational biology.</span>
-                <span class="zh">我是北京师范大学-香港浸会大学联合国际学院（BNBU）应用数学专业本科生，辅修计算机科学。我的研究兴趣集中在数学建模、统计学习与机器学习在生物医学和公共卫生决策问题中的应用，尤其关注传染病预测、自适应诊断分流以及计算生物学。</span>
-            </p>
-        </section>
+        <section id="about">
+            <div class="section-heading">
+                <div>
+                    <h2><span class="en">About Me</span><span class="zh">关于我</span></h2>
+                    <div class="underline"></div>
+                    <p class="section-kicker">
+                        <span class="en">Academic background, research identity, and current direction</span>
+                        <span class="zh">学术背景、研究身份与当前方向</span>
+                    </p>
+                </div>
+            </div>
 
-        <section id="education">
-            <h2><span class="en">Education</span><span class="zh">教育背景</span></h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Beijing Normal - Hong Kong Baptist University (BNBU)</span>
-                        <span class="zh">北京师范大学-香港浸会大学联合国际学院 (BNBU)</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">09/2023 – Present</span><span class="zh">2023.09 – 至今</span>
-                    </span>
+            <div class="grid-2">
+                <div class="card soft">
+                    <h3><span class="en">Education</span><span class="zh">教育背景</span></h3>
+                    <p><strong>Beijing Normal - Hong Kong Baptist University (BNBU)</strong></p>
+                    <p>
+                        <span class="en">B.S. in Applied Mathematics | Minor in Computer Science and Technology</span>
+                        <span class="zh">应用数学理学学士｜辅修计算机科学与技术</span>
+                    </p>
+                    <p>
+                        <span class="en"><strong>CGPA:</strong> 3.38/4.0 | <strong>Rank:</strong> Top 20 | <strong>IELTS:</strong> 6.5</span>
+                        <span class="zh"><strong>CGPA：</strong>3.38/4.0｜<strong>排名：</strong>Top 20｜<strong>雅思：</strong>6.5</span>
+                    </p>
+                    <p>
+                        <span class="en"><strong>Selected Coursework:</strong> Machine Learning, Probability Theory, Mathematical Statistics, Optimization, Numerical Analysis, Mathematical Modeling, Graph Theory, Data Structures and Algorithms.</span>
+                        <span class="zh"><strong>核心课程：</strong>机器学习、概率论、数理统计、最优化、数值分析、数学建模、图论、数据结构与算法。</span>
+                    </p>
                 </div>
-                <div class="item-subtitle">
-                    <span class="en">Bachelor of Science in Applied Mathematics | Minor in Computer Science</span>
-                    <span class="zh">应用数学理学学士 | 辅修计算机科学</span>
+
+                <div class="card pink">
+                    <h3><span class="en">Research Identity</span><span class="zh">研究定位</span></h3>
+                    <p>
+                        <span class="en">My current interests lie at the intersection of <strong>biomedical AI, computational biology, statistical modeling, and data-driven decision support</strong>.</span>
+                        <span class="zh">目前我的兴趣集中在<strong>生物医学 AI、计算生物学、统计建模与数据驱动决策支持</strong>的交叉方向。</span>
+                    </p>
+                    <p>
+                        <span class="en">I have submitted a first-author manuscript on forecast-guided dengue diagnostic triage to <em>Computer Methods and Programs in Biomedicine</em>, and I am also involved in computational biology research on tumor microenvironment modeling and perturbation-response prediction.</span>
+                        <span class="zh">我已以第一作者身份向 <em>Computer Methods and Programs in Biomedicine</em> 投稿预测引导型登革热诊断分流研究，同时参与肿瘤微环境建模与扰动响应预测相关的计算生物学研究。</span>
+                    </p>
                 </div>
-                <ul>
-                    <li>
-                        <span class="en"><strong>GPA:</strong> 3.38/4.0 | <strong>Rank:</strong> 20/65</span>
-                        <span class="zh"><strong>GPA:</strong> 3.38/4.0 | <strong>专业排名:</strong> 20/65</span>
-                    </li>
-                    <li>
-                        <span class="en"><strong>Selected Courses:</strong> Machine Learning, Data Structures & Algorithms, Mathematical Statistics, Applied Stochastic Process, Optimization, Numerical Analysis, Mathematical Modelling, Graph Theory, Database Management Systems.</span>
-                        <span class="zh"><strong>核心课程:</strong> 机器学习、数据结构与算法、数理统计、应用随机过程、最优化方法、数值分析、数学建模、图论、数据库管理系统。</span>
-                    </li>
-                </ul>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>2023</strong>
+                    <span class="en">Applied Mathematics + Computer Science foundation</span>
+                    <span class="zh">应用数学与计算机基础训练</span>
+                </div>
+                <div class="timeline-item">
+                    <strong>2025</strong>
+                    <span class="en">Modeling, data analysis, and computational biology exploration</span>
+                    <span class="zh">建模、数据分析与计算生物学探索</span>
+                </div>
+                <div class="timeline-item">
+                    <strong>2026</strong>
+                    <span class="en">Biomedical AI and decision-support research</span>
+                    <span class="zh">生物医学 AI 与决策支持研究</span>
+                </div>
             </div>
         </section>
 
         <section id="research">
-            <h2><span class="en">Research & Selected Projects</span><span class="zh">科研与核心项目</span></h2>
-
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">ADAPT: Forecasting-Guided Diagnostic Triage for Dengue Outbreaks</span>
-                        <span class="zh">ADAPT：面向登革热暴发的预测引导式诊断分流框架</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Jan. 2026 – Apr. 2026</span><span class="zh">2026.01 – 2026.04</span>
-                    </span>
-                </div>
-                <div class="item-subtitle">
-                    <span class="en">First Author | Manuscript in preparation for <em>Computer Methods and Programs in Biomedicine</em></span>
-                    <span class="zh">第一作者 | 论文准备投稿至 <em>Computer Methods and Programs in Biomedicine</em></span>
-                </div>
-                <div class="project-figure">
-                    <img src="adapt_workflow.png" alt="ADAPT framework workflow">
-                    <p class="figure-caption">
-                        <span class="en">Research overview of the ADAPT framework (manuscript in preparation).</span>
-                        <span class="zh">ADAPT 框架研究流程图（论文准备中）。</span>
+            <div class="section-heading">
+                <div>
+                    <h2><span class="en">Research Projects</span><span class="zh">科研项目</span></h2>
+                    <div class="underline"></div>
+                    <p class="section-kicker">
+                        <span class="en">Forecasting, decision optimization, and computational biology</span>
+                        <span class="zh">预测建模、决策优化与计算生物学</span>
                     </p>
                 </div>
-                <ul>
-                    <li>
-                        <span class="en">Developed an adaptive diagnostic decision-support framework linking short-term positivity forecasting with cost-sensitive PCR confirmation policies.</span>
-                        <span class="zh">构建自适应诊断决策支持框架，将短期阳性率预测与成本敏感型 PCR 复核策略相结合。</span>
-                    </li>
-                    <li>
-                        <span class="en">Trained an attention-guided LSTM model on 78,068 dual-verified Brazilian SINAN surveillance records from 2021–2025, achieving a held-out MSE of 0.015.</span>
-                        <span class="zh">基于 2021–2025 年巴西 SINAN 数据库中 78,068 条双重验证记录训练注意力引导 LSTM 模型，在留出测试中取得 MSE = 0.015。</span>
-                    </li>
-                    <li>
-                        <span class="en">Derived an analytical decision threshold and evaluated operational robustness using Monte Carlo simulation under stochastic sensitivity and specificity assumptions.</span>
-                        <span class="zh">推导解析型诊断决策阈值，并在敏感性和特异性随机波动假设下使用蒙特卡洛模拟评估策略稳健性。</span>
-                    </li>
-                    <li>
-                        <span class="en">Reduced projected false-positive diagnoses by 65.0%, improved system PPV to 0.785, and achieved a 49.4% cost saving relative to universal PCR confirmation; further assessed transferability in Zika surveillance.</span>
-                        <span class="zh">相较基准策略，预计假阳性诊断减少 65.0%，系统 PPV 提升至 0.785，并相较全量 PCR 复核节省 49.4% 成本；同时在 Zika 监测场景中评估框架迁移性。</span>
-                    </li>
-                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span class="item-title">
+                        <span class="en">ADAPT: Forecast-Guided Diagnostic Triage for Dengue</span>
+                        <span class="zh">ADAPT：面向登革热的预测引导型诊断分流框架</span>
+                    </span>
+                    <span class="item-date">
+                        <span class="en">Jan. 2026 – Apr. 2026</span>
+                        <span class="zh">2026.01 – 2026.04</span>
+                    </span>
+                </div>
+                <div class="item-subtitle">
+                    <span class="en">First Author | Submitted to <em>Computer Methods and Programs in Biomedicine</em>, Apr. 2026</span>
+                    <span class="zh">第一作者｜已投稿至 <em>Computer Methods and Programs in Biomedicine</em>，2026年4月</span>
+                </div>
+
+                <div class="figure">
+                    <img src="adapt_workflow.png" alt="ADAPT framework workflow">
+                    <p class="figure-caption">
+                        <span class="en">Overview of the ADAPT framework: data preprocessing, prevalence forecasting, decision optimization, operational evaluation, and decision-support output.</span>
+                        <span class="zh">ADAPT 框架流程图：数据预处理、阳性率预测、决策优化、运行评估与诊断决策支持输出。</span>
+                    </p>
+                </div>
+
                 <div class="metric-grid">
-                    <div class="metric-card"><span class="metric-value">78,068</span><span class="metric-label"><span class="en">records</span><span class="zh">监测记录</span></span></div>
-                    <div class="metric-card"><span class="metric-value">0.015</span><span class="metric-label"><span class="en">MSE</span><span class="zh">预测误差</span></span></div>
-                    <div class="metric-card"><span class="metric-value">65.0%</span><span class="metric-label"><span class="en">FP reduction</span><span class="zh">假阳性减少</span></span></div>
-                    <div class="metric-card"><span class="metric-value">49.4%</span><span class="metric-label"><span class="en">cost saving</span><span class="zh">成本节省</span></span></div>
+                    <div class="metric"><strong>78,068</strong><span class="en">dual-verified records</span><span class="zh">双验证监测记录</span></div>
+                    <div class="metric"><strong>0.015</strong><span class="en">forecasting MSE</span><span class="zh">预测 MSE</span></div>
+                    <div class="metric"><strong>65.0%</strong><span class="en">FP reduction</span><span class="zh">假阳性减少</span></div>
+                    <div class="metric"><strong>49.4%</strong><span class="en">cost saving</span><span class="zh">成本节省</span></div>
                 </div>
-                <div class="project-note">
-                    <span class="en">Manuscript not publicly available before journal submission.</span>
-                    <span class="zh">论文投递前暂不公开全文，仅展示项目摘要与关键结果。</span>
-                </div>
-            </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">TME-HyperPerturb: Semantic Hypergraph Modeling for Tumor Microenvironment Perturbation Response</span>
-                        <span class="zh">TME-HyperPerturb：面向肿瘤微环境扰动响应预测的语义超图建模</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Sep. 2025 – Jan. 2026</span><span class="zh">2025.09 – 2026.01</span>
-                    </span>
-                </div>
-                <div class="item-subtitle">
-                    <span class="en">Third Author | Expected publication in <em>Bioinformatics</em>, Oxford University Press</span>
-                    <span class="zh">第三作者 | 预计发表于 Oxford University Press 旗下 <em>Bioinformatics</em></span>
-                </div>
-                <div class="project-figure">
-                    <img src="pipline.png" alt="TME-HyperPerturb Pipeline">
-                </div>
                 <ul>
                     <li>
-                        <span class="en">Proposed a semantic hypergraph framework to encode biologically motivated microenvironmental motifs and local niche signals in the tumor microenvironment.</span>
-                        <span class="zh">提出语义超图框架，用于编码肿瘤微环境中具有生物学意义的局部生态位信号和高阶空间结构。</span>
+                        <span class="en">Developed a forecasting-guided decision-support framework for adaptive diagnostic triage during dengue outbreaks.</span>
+                        <span class="zh">构建预测引导型决策支持框架，用于登革热暴发场景下的自适应诊断分流。</span>
                     </li>
                     <li>
-                        <span class="en">Reproduced and structurally improved the chemCPA baseline model to establish a rigorous benchmarking pipeline.</span>
-                        <span class="zh">复现并结构性改进 chemCPA 基线模型，建立严谨的扰动响应预测基准测试流程。</span>
+                        <span class="en">Trained an attention-guided LSTM model on Brazilian SINAN surveillance records to forecast weekly RT-PCR-confirmed positivity.</span>
+                        <span class="zh">基于巴西 SINAN 监测记录训练 attention-guided LSTM 模型，用于预测周度 RT-PCR 确证阳性率。</span>
                     </li>
                     <li>
-                        <span class="en">Synthesized evaluation results showing a peak Pearson correlation of <strong>0.998 ± 0.002</strong> and the lowest MSE across multiple datasets.</span>
-                        <span class="zh">整理并分析多数据集实验结果，模型取得最高 <strong>0.998 ± 0.002</strong> 的 Pearson 相关系数，并获得最低 MSE。</span>
+                        <span class="en">Integrated an analytical decision threshold and Monte Carlo simulation for cost-sensitive PCR confirmation and robustness assessment.</span>
+                        <span class="zh">结合解析决策阈值与蒙特卡洛模拟，实现成本敏感 PCR 确认策略与运行稳健性评估。</span>
+                    </li>
+                    <li>
+                        <span class="en"><strong>Clinical utility:</strong> system PPV improved to 0.785 while reducing diagnostic waste under resource constraints.</span>
+                        <span class="zh"><strong>临床效用：</strong>系统 PPV 提升至 0.785，并在资源受限场景下降低诊断浪费。</span>
                     </li>
                 </ul>
             </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Computational Biology Project Series: TME Cell Trajectory Modeling</span>
-                        <span class="zh">计算生物学项目组：TME 细胞轨迹建模与因果推断</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Nov. 2025 – Present</span><span class="zh">2025.11 – 至今</span>
-                    </span>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>
+                        <span class="en">TME-HyperPerturb</span>
+                        <span class="zh">TME-HyperPerturb</span>
+                    </h3>
+                    <p class="subtle">
+                        <span class="en">Third Author | Manuscript in Preparation | Target Journal: <em>Bioinformatics</em>, Oxford University Press</span>
+                        <span class="zh">第三作者｜论文准备中｜目标期刊：<em>Bioinformatics</em>, Oxford University Press</span>
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="en">Proposed a semantic hypergraph framework to encode biologically motivated microenvironmental motifs.</span>
+                            <span class="zh">提出语义超图框架，用于编码具有生物学意义的微环境基序。</span>
+                        </li>
+                        <li>
+                            <span class="en">Reproduced and improved the chemCPA baseline model and built a benchmarking pipeline.</span>
+                            <span class="zh">复现并改进 chemCPA 基准模型，建立 benchmarking 流程。</span>
+                        </li>
+                        <li>
+                            <span class="en">Contributed to model evaluation, result analysis, and manuscript preparation.</span>
+                            <span class="zh">参与模型评估、结果分析与论文准备。</span>
+                        </li>
+                    </ul>
+                    <p><strong>Key Result:</strong> Pearson r = 0.998 ± 0.002</p>
                 </div>
-                <div class="item-subtitle">
-                    <span class="en">Markov Chains, Gaussian Process Regression, Spatial Vector Fields, Causal Cell Communication, CASCAT</span>
-                    <span class="zh">马尔可夫链、高斯过程回归、空间向量场、因果细胞通讯、CASCAT</span>
+
+                <div class="card soft">
+                    <h3>
+                        <span class="en">TME Cell Trajectory Modeling</span>
+                        <span class="zh">TME 细胞轨迹建模</span>
+                    </h3>
+                    <p class="subtle">
+                        <span class="en">Project Lead | Exploratory Research Series</span>
+                        <span class="zh">项目负责人｜探索性研究系列</span>
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="en">Markov-chain-based cell differentiation trajectory analysis.</span>
+                            <span class="zh">基于马尔可夫链的细胞分化轨迹分析。</span>
+                        </li>
+                        <li>
+                            <span class="en">Gaussian Process Regression for spatial smoothing.</span>
+                            <span class="zh">用于空间平滑的高斯过程回归。</span>
+                        </li>
+                        <li>
+                            <span class="en">Spatial Vector Field Inference for cellular transition dynamics.</span>
+                            <span class="zh">用于细胞转移动态的空间向量场推断。</span>
+                        </li>
+                        <li>
+                            <span class="en">Causal cell communication and CASCAT-based causal trajectory inference.</span>
+                            <span class="zh">因果细胞通讯与基于 CASCAT 的因果轨迹推断。</span>
+                        </li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>
-                        <span class="en">Analyzed tumor microenvironment cell differentiation trajectories using Markov-chain-based state-transition modeling.</span>
-                        <span class="zh">基于马尔可夫链对肿瘤微环境中的细胞分化轨迹进行状态转移建模与分析。</span>
-                    </li>
-                    <li>
-                        <span class="en">Explored trajectory optimization methods using Gaussian Process Regression, spatial vector-field inference, and causal cell-communication inference.</span>
-                        <span class="zh">尝试使用高斯过程回归、空间向量场推断与因果细胞通讯推断方法优化 TME 细胞轨迹建模。</span>
-                    </li>
-                    <li>
-                        <span class="en">Extended the project toward CASCAT-based causal inference for TME cell trajectories, connecting spatial transcriptomics with dynamic and causal modeling.</span>
-                        <span class="zh">进一步开展基于 CASCAT 的 TME 细胞轨迹因果推断，将空间转录组分析与动态轨迹、因果建模相结合。</span>
-                    </li>
-                </ul>
             </div>
 
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Full-Stack Fitness Management Web System</span>
-                        <span class="zh">健身房管理网页的前后端搭建与交互</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Sep. 2025 – Nov. 2025</span><span class="zh">2025.09 – 2025.11</span>
-                    </span>
-                </div>
-                <div class="item-subtitle">
-                    <span class="en">Selected software engineering project</span>
-                    <span class="zh">代表性软件工程项目</span>
-                </div>
-                <ul>
-                    <li>
-                        <span class="en">Built a database-backed web system with front-end and back-end interaction logic, demonstrating practical implementation ability beyond statistical modeling.</span>
-                        <span class="zh">搭建带数据库支持的网页系统，实现前后端交互逻辑，展示统计建模之外的工程实现能力。</span>
-                    </li>
-                    <li>
-                        <span class="en">Designed user-facing interaction flows and data-management functions for a fitness-management scenario.</span>
-                        <span class="zh">围绕健身房管理场景设计用户交互流程与数据管理功能。</span>
-                    </li>
-                </ul>
+            <div class="figure">
+                <img src="tme_pipeline.png" alt="TME computational biology pipeline">
+                <p class="figure-caption">
+                    <span class="en">Selected computational biology workflow and modeling visuals.</span>
+                    <span class="zh">计算生物学建模流程与方法示意图。</span>
+                </p>
             </div>
-
         </section>
 
-        <section id="internship">
-            <h2><span class="en">Internship Experience</span><span class="zh">实习经历</span></h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Machang Tianyuan Surveying & Mapping Co., Ltd</span>
-                        <span class="zh">马鞍山天元测绘有限公司</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Jan. 2026 – Mar. 2026</span><span class="zh">2026.01 – 2026.03</span>
-                    </span>
+        <section id="experience">
+            <div class="section-heading">
+                <div>
+                    <h2><span class="en">Practical Experience</span><span class="zh">实践经历</span></h2>
+                    <div class="underline"></div>
+                    <p class="section-kicker">
+                        <span class="en">Data quality, uncertainty, and real-world analytical work</span>
+                        <span class="zh">数据质量、不确定性与真实场景分析工作</span>
+                    </p>
                 </div>
-                <div class="item-subtitle">
-                    <span class="en">Remote Sensing Data Analyst Intern | Data Analysis Department</span>
-                    <span class="zh">遥感数据分析师实习生 | 数据分析部</span>
-                </div>
-                <ul>
-                    <li>
-                        <span class="en">Validated satellite-based inversion models for surface parameters, including vegetation cover and water quality, using regression analysis and hypothesis testing.</span>
-                        <span class="zh">使用回归分析与假设检验验证植被覆盖、水质等地表参数的卫星遥感反演模型。</span>
-                    </li>
-                    <li>
-                        <span class="en">Applied Monte Carlo simulations to quantify uncertainty propagation in remote-sensing-derived parameter estimates.</span>
-                        <span class="zh">通过蒙特卡洛模拟量化遥感反演参数估计中的不确定性传播。</span>
-                    </li>
-                    <li>
-                        <span class="en">Conducted time-series analysis to examine seasonal vegetation-index patterns and assess the statistical reliability of inversion results.</span>
-                        <span class="zh">开展时间序列分析以识别植被指数季节性趋势，并评估反演结果的统计可靠性。</span>
-                    </li>
-                </ul>
             </div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Jiangsu Hoperun Software Co., Ltd. | Huawei Enterprise Department</span>
-                        <span class="zh">江苏润和软件股份有限公司 | 华为事业部</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Jun. 2025 – Aug. 2025</span><span class="zh">2025.06 – 2025.08</span>
-                    </span>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>
+                        <span class="en">Remote Sensing Data Analyst Intern</span>
+                        <span class="zh">遥感数据分析师实习生</span>
+                    </h3>
+                    <p class="subtle">Ma'anshan Tianyuan Surveying and Mapping Co., Ltd | Jan. 2026 – Mar. 2026</p>
+                    <ul>
+                        <li>
+                            <span class="en">Validated satellite-based inversion models using regression analysis and hypothesis testing.</span>
+                            <span class="zh">运用回归分析与假设检验验证遥感反演模型。</span>
+                        </li>
+                        <li>
+                            <span class="en">Applied Monte Carlo simulation to quantify uncertainty propagation in parameter estimation.</span>
+                            <span class="zh">应用蒙特卡洛模拟量化参数估计中的不确定性传播。</span>
+                        </li>
+                        <li>
+                            <span class="en">Used time-series analysis to track seasonal vegetation-index patterns.</span>
+                            <span class="zh">使用时间序列分析追踪植被指数季节性变化趋势。</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="item-subtitle">
-                    <span class="en">Assistant Data Annotator</span>
-                    <span class="zh">助理数据标注师</span>
+
+                <div class="card">
+                    <h3>
+                        <span class="en">Assistant Data Annotator</span>
+                        <span class="zh">助理数据标注师</span>
+                    </h3>
+                    <p class="subtle">Jiangsu Hoperun Software Co., Ltd. | Huawei Enterprise Department | Jun. 2025 – Aug. 2025</p>
+                    <ul>
+                        <li>
+                            <span class="en">Processed and annotated large-scale enterprise datasets for downstream machine-learning workflows.</span>
+                            <span class="zh">参与大规模企业数据处理与标注，为下游机器学习流程提供支持。</span>
+                        </li>
+                        <li>
+                            <span class="en">Performed quality assurance by identifying anomalies and edge cases in unstructured data.</span>
+                            <span class="zh">通过识别异常样本与边缘情况执行数据质量保证。</span>
+                        </li>
+                        <li>
+                            <span class="en">Developed stronger awareness of data reliability and ground-truth construction.</span>
+                            <span class="zh">增强了对数据可靠性与 ground truth 构建的理解。</span>
+                        </li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>
-                        <span class="en">Processed and annotated large-scale enterprise datasets for Huawei-related machine learning workflows, supporting high-quality ground-truth construction.</span>
-                        <span class="zh">处理并标注华为相关企业级数据，为下游机器学习流程构建高质量基准事实。</span>
-                    </li>
-                    <li>
-                        <span class="en">Performed data quality assurance by identifying anomalies, resolving edge cases in unstructured data, and improving dataset reliability for model training.</span>
-                        <span class="zh">执行数据质量保证流程，识别异常样本并处理非结构化数据中的边缘案例，提高训练数据可靠性。</span>
-                    </li>
-                </ul>
             </div>
         </section>
 
         <section id="honors">
-            <h2><span class="en">Honors & Academic Activities</span><span class="zh">荣誉与学术经历</span></h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">China Undergraduate Mathematical Contest in Modeling</span>
-                        <span class="zh">全国大学生数学建模竞赛 (CUMCM)</span>
-                    </span>
-                    <span class="item-date">2024 & 2025</span>
+            <div class="section-heading">
+                <div>
+                    <h2><span class="en">Honors & Academic Activities</span><span class="zh">荣誉与学术活动</span></h2>
+                    <div class="underline"></div>
+                    <p class="section-kicker">
+                        <span class="en">Academic achievement, leadership recognition, and selected evidence</span>
+                        <span class="zh">学术成果、领导力认可与证明材料</span>
+                    </p>
                 </div>
-                <ul>
-                    <li>
-                        <span class="en"><strong>Provincial Second Prize:</strong> Determination of Silicon Carbide Epitaxial Layer Thickness (Oct. 2025)</span>
-                        <span class="zh"><strong>省级二等奖：</strong>碳化硅外延层厚度的确定 (2025.10)</span>
-                    </li>
-                    <li>
-                        <span class="en"><strong>Provincial Third Prize:</strong> "Bench Dragon" Lantern Festival (Oct. 2024)</span>
-                        <span class="zh"><strong>省级三等奖：</strong>“板凳龙”闹元宵 (2024.10)</span>
-                    </li>
-                </ul>
             </div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Imperial College London</span>
-                        <span class="zh">帝国理工学院</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Jan. 2026</span><span class="zh">2026.01</span>
-                    </span>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3><span class="en">Selected Awards</span><span class="zh">代表性荣誉</span></h3>
+                    <div class="honor-list">
+                        <div>CUMCM - Provincial Second Prize (2025)</div>
+                        <div>CUMCM - Provincial Third Prize (2024)</div>
+                        <div>Outstanding Peer Mentor Award (May 2025)</div>
+                        <div>Leader Path Programme - Silver Award (2025) and Gold Award (2026)</div>
+                        <div>The 14th National Forum on Mathematical Culture - Attendee</div>
+                        <div>Best Group Project Award - Outline of Modern Chinese History</div>
+                        <div>16th BNBU Sports Meeting - Women's 4×100 Relay, Third Place</div>
+                        <div>Imperial College London Certificate in Public Health Statistics</div>
+                    </div>
                 </div>
-                <div class="item-subtitle">
-                    <span class="en">Course Certificate: Introduction to Statistics & Data Analysis in Public Health</span>
-                    <span class="zh">课程证书：公共卫生中的统计与数据分析基础</span>
-                </div>
-                <a href="imperial_bio.pdf" target="_blank" class="project-link">
-                    <span class="en">🎓 View Official Certificate</span><span class="zh">🎓 查看官方证书</span>
-                </a>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Leader Path Programme of BNBU</span>
-                        <span class="zh">BNBU Leader Path 领袖计划</span>
-                    </span>
-                    <span class="item-date">2025 & 2026</span>
-                </div>
-                <ul>
-                    <li>
-                        <span class="en"><strong>Gold Award:</strong> Leader Path Programme (2026)</span>
-                        <span class="zh"><strong>金奖：</strong>校级领袖计划最高荣誉 (2026)</span>
-                    </li>
-                    <li>
-                        <span class="en"><strong>Silver Award:</strong> Leader Path Programme (2025)</span>
-                        <span class="zh"><strong>银奖：</strong>校级领袖计划荣誉 (2025)</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">The 14th National Forum on Mathematical Culture</span>
-                        <span class="zh">第十四届全国数学文化论坛</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Jun. 2025 – Jul. 2025</span><span class="zh">2025.06 – 2025.07</span>
-                    </span>
-                </div>
-                <div class="item-subtitle">
-                    <span class="en">Attendee | Organized by Chinese Mathematical Society</span>
-                    <span class="zh">学术参会 | 中国数学会主办</span>
+
+                <div class="card soft">
+                    <h3><span class="en">Selected Evidence</span><span class="zh">证明材料</span></h3>
+                    <div class="gallery">
+                        <div class="photo-card tall">
+                            <img src="cumcm_2025.png" alt="CUMCM 2025 certificate">
+                            <div class="photo-caption">CUMCM 2025</div>
+                        </div>
+                        <div class="photo-card tall">
+                            <img src="cumcm_2024.png" alt="CUMCM 2024 certificate">
+                            <div class="photo-caption">CUMCM 2024</div>
+                        </div>
+                        <div class="photo-card tall">
+                            <img src="leader_path_award.jpg" alt="Leader Path Programme award">
+                            <div class="photo-caption">Leader Path</div>
+                        </div>
+                        <div class="photo-card tall">
+                            <img src="peer_mentor_award.jpg" alt="Outstanding Peer Mentor Award">
+                            <div class="photo-caption">Peer Mentor Award</div>
+                        </div>
+                        <div class="photo-card tall">
+                            <img src="math_forum.jpg" alt="National Forum on Mathematical Culture">
+                            <div class="photo-caption">Math Forum</div>
+                        </div>
+                        <div class="photo-card tall">
+                            <img src="ielts.pdf" alt="IELTS certificate placeholder">
+                            <div class="photo-caption">IELTS 6.5</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="leadership">
-            <h2><span class="en">Leadership & Service</span><span class="zh">领导力与服务经历</span></h2>
-            <div class="item">
-                <div class="item-header">
-                    <span class="item-title">
-                        <span class="en">Student Leadership & Organization</span>
-                        <span class="zh">学生组织与管理工作</span>
-                    </span>
-                    <span class="item-date">
-                        <span class="en">Sept. 2023 – Present</span><span class="zh">2023.09 – 至今</span>
-                    </span>
+            <div class="section-heading">
+                <div>
+                    <h2><span class="en">Leadership & Campus Responsibilities</span><span class="zh">校园领导力与责任</span></h2>
+                    <div class="underline"></div>
+                    <p class="section-kicker">
+                        <span class="en">Student organizations, mentoring, residential support, and campus coordination</span>
+                        <span class="zh">学生组织、朋辈辅导、舍堂支持与校园协调</span>
+                    </p>
                 </div>
-                <ul>
-                    <li>
-                        <span class="en"><strong>Chairperson of Electoral Commission</strong>, BNBU Student Union: coordinated university-level elections and managed departmental operations.</span>
-                        <span class="zh"><strong>校学生会选举委员会主席：</strong>负责校级选举工作统筹、部门运营与成员培训。</span>
-                    </li>
-                    <li>
-                        <span class="en"><strong>Head of Organization Department</strong>, BNBU CCYL Committee: organized youth league activities and supported training for student officers.</span>
-                        <span class="zh"><strong>校团委组织部部长：</strong>组织校级团学工作，并支持学生干部培训。</span>
-                    </li>
-                    <li>
-                        <span class="en"><strong>Resident Tutor</strong>, BNBU Student Affairs Office: supported residential hall management, student guidance, and community-building activities.</span>
-                        <span class="zh"><strong>学长舍堂导师：</strong>协助宿舍管理、学生生活辅导与舍堂活动组织。</span>
-                    </li>
-                    <li>
-                        <span class="en"><strong>Peer Mentor</strong>, BNBU Peer Mentor Program: provided academic and adaptation support for first-year students.</span>
-                        <span class="zh"><strong>朋辈导师：</strong>为低年级学生提供学业与大学适应支持。</span>
-                    </li>
-                </ul>
+            </div>
+
+            <div class="gallery two" style="margin-bottom: 1.4rem;">
+                <div class="photo-card wide">
+                    <img src="mcp_peer_mentor.jpg" alt="MCP Peer Mentor Programme gathering">
+                    <div class="photo-caption">
+                        <span class="en">MCP Peer Mentor Programme Gathering</span>
+                        <span class="zh">MCP 朋辈导师计划聚餐</span>
+                    </div>
+                </div>
+                <div class="photo-card wide">
+                    <img src="student_union.jpg" alt="Student Union teamwork and event coordination">
+                    <div class="photo-caption">
+                        <span class="en">Student Union Teamwork and Event Coordination</span>
+                        <span class="zh">学生会团队协作与活动组织</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3><span class="en">Leadership Roles</span><span class="zh">领导力经历</span></h3>
+                    <ul>
+                        <li>
+                            <span class="en"><strong>Chairperson of Electoral Commission</strong>, BNBU Student Union: coordinated university-level election activities and daily team operations.</span>
+                            <span class="zh"><strong>学生会代表会选举委员会主席：</strong>负责校级选举活动策划执行、部门日常运作与成员培训。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>Head of Organization Department</strong>, BNBU CCYL Committee: supported youth league activities and student officer training.</span>
+                            <span class="zh"><strong>校团委组织部部长：</strong>协助推进校级学生党团工作，并为院级学生副书记和团干开展培训。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>Head of Hanfu Department</strong>, Traditional Culture Club: promoted traditional culture and organized campus performances.</span>
+                            <span class="zh"><strong>传统文化社团汉服部部长：</strong>宣传传统文化与汉服文化，组织汉服主题活动和校园表演。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>Administrative Office Member</strong>, Student Union: supported logistics and coordination for major student events.</span>
+                            <span class="zh"><strong>学生会干事会行政办公室成员：</strong>协助处理学生会大型活动的行政后勤与协调工作。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card pink">
+                    <h3><span class="en">Mentorship & Campus Support</span><span class="zh">导师与校园支持</span></h3>
+                    <ul>
+                        <li>
+                            <span class="en"><strong>Resident Tutor</strong>, BNBU Student Affairs Office: supported residence hall management and student life guidance.</span>
+                            <span class="zh"><strong>学长舍堂导师：</strong>协助管理宿舍楼栋，组织舍堂活动，为学生苑舍生活提供支持与指导。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>Peer Mentor</strong>, BNBU Peer Mentor Program: provided academic and life adaptation guidance for freshmen; received Outstanding Peer Mentor Award.</span>
+                            <span class="zh"><strong>朋辈导师：</strong>为低年级学生提供学业与生活适应辅导，并获 Outstanding Peer Mentor Award。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>External Affairs Intern</strong>, BNBU Admission Office: supported outreach and recruitment presentations across multiple cities.</span>
+                            <span class="zh"><strong>校招生办公室外务实习生：</strong>协助招生宣传工作，并作为代表参与安徽省多地中学宣讲。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="volunteer">
+            <div class="section-heading">
+                <div>
+                    <h2><span class="en">Volunteer Service & Community Engagement</span><span class="zh">志愿服务与公共参与</span></h2>
+                    <div class="underline"></div>
+                    <p class="section-kicker">
+                        <span class="en">Education support, public service, outreach, and language program assistance</span>
+                        <span class="zh">教育支持、公共服务、招生宣传与英文提升项目协助</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3><span class="en">Volunteer Highlights</span><span class="zh">志愿服务概览</span></h3>
+                    <ul>
+                        <li>
+                            <span class="en"><strong>Tutoring Project Group:</strong> completed 24 hours of education-support volunteer service.</span>
+                            <span class="zh"><strong>家教项目组义工：</strong>累计完成 24 小时教育支持志愿服务。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>Gongbei Port Welcome Service:</strong> completed 8 hours of public-service volunteering on Apr. 13, 2024.</span>
+                            <span class="zh"><strong>拱北口岸微笑迎宾：</strong>2024年4月13日完成 8 小时公共服务志愿活动。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>EEP English Enhancement Program:</strong> assisted program organization from Aug. 26 to Aug. 30, 2024.</span>
+                            <span class="zh"><strong>EEP English Enhancement Program：</strong>2024年8月26日至8月30日参与项目志愿协助。</span>
+                        </li>
+                        <li>
+                            <span class="en"><strong>Winter Outreach Ambassador:</strong> participated in 2023–2024 winter outreach and university promotion work.</span>
+                            <span class="zh"><strong>2023–2024 寒假宣传大使：</strong>参与学校宣传与外部沟通工作。</span>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>50+ hours</strong> of volunteer and community service.</p>
+                </div>
+
+                <div class="card soft">
+                    <h3><span class="en">Selected Service Photos</span><span class="zh">代表性服务照片</span></h3>
+                    <div class="gallery two">
+                        <div class="photo-card wide">
+                            <img src="leadership_training.jpg" alt="Young Marxist Training Programme">
+                            <div class="photo-caption">
+                                <span class="en">Young Marxist Training Programme</span>
+                                <span class="zh">青马工程</span>
+                            </div>
+                        </div>
+                        <div class="photo-card wide">
+                            <img src="resident_tutor.jpg" alt="Resident Tutor hall engagement">
+                            <div class="photo-caption">
+                                <span class="en">Resident Tutor / Hall Engagement</span>
+                                <span class="zh">舍堂导师 / 苑舍参与</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; color: var(--light-text);">
+                        <span class="en">These experiences strengthened my communication, public engagement, and sense of responsibility in academic and campus communities.</span>
+                        <span class="zh">这些经历提升了我在学术与校园共同体中的沟通能力、公共参与意识与责任感。</span>
+                    </p>
+                </div>
             </div>
         </section>
 
         <section id="skills">
-            <h2><span class="en">Technical Skills</span><span class="zh">专业技能</span></h2>
-            
-            <h3><span class="en">Programming & Tools</span><span class="zh">编程与工具</span></h3>
-            <div class="skills-container">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">MATLAB</span>
-                <span class="skill-tag">C/C++</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">Linux</span>
-                <span class="skill-tag">Git</span>
+            <div class="section-heading">
+                <div>
+                    <h2><span class="en">Skills</span><span class="zh">专业技能</span></h2>
+                    <div class="underline"></div>
+                    <p class="section-kicker">
+                        <span class="en">Technical, statistical, and computational biology methods</span>
+                        <span class="zh">编程、统计建模与计算生物学方法</span>
+                    </p>
+                </div>
             </div>
 
-            <h3><span class="en">AI, Statistics & Decision Modeling</span><span class="zh">AI、统计与决策建模</span></h3>
-            <div class="skills-container">
-                <span class="skill-tag"><span class="en">Machine Learning</span><span class="zh">机器学习</span></span>
-                <span class="skill-tag"><span class="en">Time-Series Forecasting</span><span class="zh">时间序列预测</span></span>
-                <span class="skill-tag">LSTM</span>
-                <span class="skill-tag"><span class="en">Attention Mechanisms</span><span class="zh">注意力机制</span></span>
-                <span class="skill-tag"><span class="en">Bayesian Inference</span><span class="zh">贝叶斯推断</span></span>
-                <span class="skill-tag"><span class="en">Hypothesis Testing</span><span class="zh">假设检验</span></span>
-                <span class="skill-tag"><span class="en">Monte Carlo Simulation</span><span class="zh">蒙特卡洛模拟</span></span>
-                <span class="skill-tag"><span class="en">Decision Optimization</span><span class="zh">决策优化</span></span>
-                <span class="skill-tag"><span class="en">Uncertainty Quantification</span><span class="zh">不确定性量化</span></span>
-                <span class="skill-tag"><span class="en">Graph Neural Networks</span><span class="zh">图神经网络</span></span>
-                <span class="skill-tag"><span class="en">Markov Chains</span><span class="zh">马尔可夫链</span></span>
-                <span class="skill-tag"><span class="en">Gaussian Process Regression</span><span class="zh">高斯过程回归</span></span>
-                <span class="skill-tag"><span class="en">Causal Inference</span><span class="zh">因果推断</span></span>
-                <span class="skill-tag"><span class="en">Spatial Transcriptomics</span><span class="zh">空间转录组</span></span>
-            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <h3><span class="en">Programming & Tools</span><span class="zh">编程与工具</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                    </div>
+                </div>
 
-            <h3><span class="en">Data Analysis & Visualization</span><span class="zh">数据分析与可视化</span></h3>
-            <div class="skills-container">
-                <span class="skill-tag">Pandas</span>
-                <span class="skill-tag">NumPy</span>
-                <span class="skill-tag">Matplotlib</span>
-                <span class="skill-tag">Seaborn</span>
-            </div>
+                <div class="card">
+                    <h3><span class="en">Statistical & ML Methods</span><span class="zh">统计与机器学习</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Bayesian Inference</span>
+                        <span class="skill-tag">Hypothesis Testing</span>
+                        <span class="skill-tag">Monte Carlo Simulation</span>
+                        <span class="skill-tag">Time-Series Forecasting</span>
+                        <span class="skill-tag">LSTM</span>
+                        <span class="skill-tag">Attention Mechanisms</span>
+                        <span class="skill-tag">GNNs</span>
+                        <span class="skill-tag">Decision Optimization</span>
+                        <span class="skill-tag">Uncertainty Quantification</span>
+                    </div>
+                </div>
 
-            <h3><span class="en">Languages</span><span class="zh">语言能力</span></h3>
-            <div class="skills-container">
-                <span class="skill-tag">
-                    <span class="en">English (IELTS: 6.5)</span><span class="zh">英语 (雅思: 6.5)</span>
-                    <a href="ielts.pdf" target="_blank" style="color: var(--primary-color); font-weight: 700; text-decoration: none; margin-left: 5px;">📄</a>
-                </span>
-                <span class="skill-tag"><span class="en">Mandarin Chinese (Native)</span><span class="zh">中文 (母语)</span></span>
+                <div class="card">
+                    <h3><span class="en">Computational Biology</span><span class="zh">计算生物学</span></h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spatial Transcriptomics</span>
+                        <span class="skill-tag">ChemCPA</span>
+                        <span class="skill-tag">Cell Trajectory Modeling</span>
+                        <span class="skill-tag">Causal Cell Communication</span>
+                        <span class="skill-tag">Dimensionality Reduction</span>
+                        <span class="skill-tag">TME Modeling</span>
+                    </div>
+                </div>
             </div>
         </section>
-    </div>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Zhang Yangruo. All Rights Reserved. Built with GitHub Pages.</p>
+        <p>&copy; 2026 Zhang Yangruo. Built with GitHub Pages.</p>
     </footer>
 
     <script>

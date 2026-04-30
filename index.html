@@ -567,6 +567,18 @@
             box-shadow: 0 6px 14px rgba(20, 52, 92, 0.05);
         }
 
+        .evidence-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .evidence-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(20, 52, 92, 0.12);
+        }
+
         .evidence-image {
             height: 150px;
             display: flex;
@@ -761,6 +773,7 @@
             <a href="portfolio.pdf" target="_blank" class="btn">📁 <span class="en">Portfolio PDF</span><span class="zh">作品集 PDF</span></a>
             <a href="transcript.pdf" target="_blank" class="btn">📄 <span class="en">Transcript</span><span class="zh">官方成绩单</span></a>
             <a href="certificate.pdf" target="_blank" class="btn">📜 <span class="en">Awards & Certificates</span><span class="zh">奖项与证明</span></a>
+            <a href="ielts.pdf" target="_blank" class="btn btn-outline">🌐 <span class="en">IELTS Report</span><span class="zh">雅思成绩单</span></a>
         </div>
 
         <section id="about">
@@ -1073,10 +1086,13 @@
                             </div>
                             <div class="evidence-caption">Math Forum</div>
                         </div>
-                        <div class="evidence-card">
+                        <a class="evidence-card evidence-link" href="ielts.pdf" target="_blank" rel="noopener">
                             <div class="evidence-text">IELTS 6.5</div>
-                            <div class="evidence-caption">Language Proficiency</div>
-                        </div>
+                            <div class="evidence-caption">
+                                <span class="en">Click to View IELTS Report</span>
+                                <span class="zh">点击查看雅思成绩单</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
